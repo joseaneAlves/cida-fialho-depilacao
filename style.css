@@ -1,0 +1,2570 @@
+/* =============================== */
+/*        BASE E RESET            */
+/* =============================== */
+/* @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Inter:wght@400;600&family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap'); */
+
+@import url('https://googleapis.com');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Montserrat", "Inter";
+    color: #333;
+    background: #F9F9F7;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+
+
+/* =============================== */
+/*           NAVEGAÇÃO             */
+/* =============================== */
+
+nav {
+    position: fixed !important;
+    top: 0;
+    left: 0 !important;
+    margin: auto;
+    z-index: 1000;
+    width: 100%;
+    max-width: 100%;
+    padding: 10px 5%;
+    height: 80px;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-family: "Montserrat", "Inter";
+    font-size: 14px;
+
+    transition: all 0.4s ease-in-out !important;
+    border-bottom: 0px solid transparent !important;
+
+    /* Faz o efeito de vidro liquido*/
+    /* Estado Durante a Rolagem (Efeito Vidro) */
+    background-color: rgba(255, 255, 255, 0.6) !important;
+    /* Branco translúcido */
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+    /* Aquela borda brilhante */
+    padding-top: 10px !important;
+    /* Opcional: diminui a altura ao rolar */
+    padding-bottom: 10px !important;
+
+    /* Garante que o menu suspenso acompanhe o estilo no mobile */
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+nav:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    gap: 2rem;
+    padding: 1rem 0;
+    flex-wrap: wrap;
+    height: 85px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+nav ul li a:hover {
+    color: #DB947A;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    /* Logo esquerda, Hambúrguer direita */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+/* Layout Base da Nav */
+.navbar {
+    background: #fff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    justify-content: space-between;
+}
+
+.nav-logo img {
+    width: 120px;
+    height: auto;
+    cursor: pointer;
+}
+
+/* Desktop: Menu Horizontal */
+.nav-links {
+    display: flex;
+    list-style: none;
+    /* gap: 25px; */
+    align-items: center;
+}
+
+/* Hambúrguer: Barrinhas */
+.hamburger {
+    display: none;
+    /* Escondido no Desktop */
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+.btn-menuPrincipal {
+    font-size: 14px;
+    display: flex;
+    padding: 16px 24px;
+    justify-content: center;
+    align-items: right;
+    cursor: pointer;
+    gap: 25px;
+    border-radius: 32px;
+    border: none;
+    background: linear-gradient(90deg, #68BE4B 0%, #80B46E 100%);
+    box-shadow: 0 4px 4px 0 rgba(249, 249, 247, 0.54) inset, 0 4px 20px 0 rgba(31, 25, 25, 0.52);
+    color: #F9F9F7;
+    font-weight: 600;
+    transition: transform 0.3s ease;
+}
+
+.btn-menuPrincipal:hover {
+    font-size: 15px;
+    background: linear-gradient(137deg, #8FE773 0%, #66B44C 100%);
+    box-shadow: 0 4px 4px 0 rgba(249, 249, 247, 0.54) inset, 0 4px 20px 0 rgba(31, 25, 25, 0.52);
+    border: none;
+    color: #FFFFFF;
+    font-weight: 600;
+    transform: scale(1.1);
+}
+
+/* Esconder o hambúrguer no Desktop */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+/* --- Estilo Mobile --- */
+@media (max-width: 900px) {
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: flex-end;
+        /* Garante o alinhamento interno à direita */
+        align-items: center;
+        margin: 0;
+        /* Remove o margin auto do desktop que centralizava o container */
+        padding: 0;
+        flex: 1;
+        /* Faz o container ocupar todo o espaço restante após a logo */
+        font-size: 15px;
+
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #fff;
+        position: absolute;
+        /* Sobrepõe o conteúdo */
+        top: 80px;
+        left: 0;
+        margin: 0;
+        /* Remove as margens de 25px herdadas do desktop */
+        height: auto;
+        /* Tamanho ajustado aos itens */
+        z-index: 998;
+        /* Garante que o menu fique acima do conteúdo, mas abaixo do hambúrguer */
+        align-items: center;
+        /* Centraliza os itens do menu horizontalmente */
+        /* padding: 30px 0; */
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 15px 0;
+        color: #333;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+        background-color: #80b46e;
+        color: #fff;
+    }
+
+    .nav-links.active {
+        display: flex;
+        /* Exibe o menu quando a classe 'active' é adicionada */
+    }
+
+    .nav-logo {
+        flex: 0 1 auto;
+        /* Permite que a logo mantenha seu tamanho original */
+        margin-right: 20px;
+        /* Pequeno respiro entre logo e o resto */
+    }
+
+    /* ANIMAÇÃO PARA O X */
+    .hamburger.open .bar1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger.open .bar2 {
+        opacity: 0;
+    }
+
+    .hamburger.open .bar3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    .btn-menuPrincipal {
+        display: none;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0;
+        padding: 0;
+        flex: 1;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        /* Escondido por padrão */
+        width: 100%;
+        flex-direction: column;
+        /* VERTICALIZA os itens */
+        align-items: center;
+        background-color: #fff;
+        /* Fundo branco para não misturar com a Hero */
+        /* padding: 30px 0;
+        gap: 20px;  */
+        position: absolute;
+        /* Sobrepõe sem empurrar */
+        top: 80px;
+        left: 0;
+        margin: 0;
+        /* Garante largura total sem recuo */
+        height: auto;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 15px 0;
+        color: #333;
+        transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+        background-color: #80b46e;
+        color: #fff;
+    }
+
+    .nav-links.active {
+        display: flex;
+        /* Exibe o menu quando a classe 'active' é adicionada */
+    }
+
+    .btn-menuPrincipal {
+        display: none;
+    }
+
+    .nav-logo {
+        flex: 0 1 auto;
+        margin-right: 20px;
+    }
+
+    /* Ajustes específicos para a seção HERO em telas de até 768px */
+    .hero {
+        padding: 1.5rem 1rem 4rem;
+        /* Reduz o padding geral para telas menores */
+    }
+
+    .hero-content h1 {
+        font-size: 32px !important;
+        /* Reduz o tamanho da fonte do h1 */
+        padding-bottom: 25px;
+        /* Ajusta o espaçamento inferior */
+    }
+
+    .hero-content h2 {
+        font-size: 26px;
+        /* Reduz o tamanho da fonte do h2 */
+        line-height: 1.4;
+        /* Ajusta a altura da linha para melhor legibilidade */
+        margin: 20px auto;
+        /* Ajusta a margem */
+    }
+}
+
+/* =============================== */
+/*             HERO                */
+/* =============================== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    margin-top: 80px;
+    padding: 2rem 2rem 5rem;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 10%;
+    background: linear-gradient(284deg, rgba(63, 114, 49, 0.2) 39%, rgba(63, 114, 49, 0.9) 100%),
+        linear-gradient(to bottom, transparent 75%, #e5b00317 100%),
+        url(img/webp/cida-sorrindo-estudio.webp);
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.hero-content {
+    padding: 40px;
+    margin-left: 0;
+    width: 600px;
+    text-align: left;
+    margin-top: 3rem;
+    z-index: 2;
+}
+
+.hero-content h1,
+.hero-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    color: #F9F9F7;
+    text-shadow: 0 4px 4px #8F5F01;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: capitalize;
+    padding-bottom: 32px;
+    animation: entradaEsquerda 1.2s ease-out forwards;
+}
+
+.hero-content h2 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 48px;
+    text-transform: capitalize;
+    padding-bottom: 24px;
+    text-align: left;
+    animation: entradaDireita 1.2s ease-out forwards;
+}
+
+.btn {
+    margin-top: 2rem;
+    font-family: 'Montserrat', 'Inter';
+    font-size: 14px;
+    font-weight: 600;
+    background: linear-gradient(90deg, #8F5F01 0%, #B87A02 100%);
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    border: none;
+    transition: 0.3s;
+    cursor: pointer;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.5);
+    animation: pulsar 2s infinite ease-in-out;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #B67F15 0%, #C78404 100%);
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.5);
+    transform: translateY(-3px);
+    animation-play-state: paused;
+    transform: scale(1.1);
+}
+
+/* --- Estilo Mobile --- */
+@media (max-width: 900px) {
+    .hero {
+        width: 100%;
+        min-height: auto !important;
+        padding-top: 100px;
+        padding-bottom: 50px;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(237deg, rgba(63, 114, 49, 0.2) 39%, rgba(63, 114, 49, 0.9) 100%),
+            url(img/png/cida-estudio-mobile.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 0 !important;
+    }
+
+    .hero-content {
+        width: 90%;
+        height: auto;
+        padding-top: 0px;
+        margin: 0 auto;
+        max-width: 600px;
+        text-align: center;
+        margin-top: 1rem;
+        z-index: 2;
+    }
+
+    .hero-content h1 {
+        font-size: 36px !important;
+        font-weight: 700;
+        line-height: 1.2;
+        text-transform: capitalize;
+        padding-bottom: 36px;
+        animation: entradaEsquerda 1.2s ease-out forwards;
+    }
+
+    .hero-content h2 {
+        padding-top: 20px;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 48px;
+        text-transform: capitalize;
+        padding-left: 30px;
+        padding-right: 30px;
+        margin: 30px;
+        padding-bottom: 16px;
+        text-align: center;
+        animation: entradaDireita 1.2s ease-out forwards;
+    }
+
+    .btn {
+        margin-top: 0px;
+        font-size: 14px;
+    }
+
+}
+
+@media (min-width: 769px) and (max-width: 899px) {
+
+    .hero {
+        width: 100%;
+        min-height: 70vh !important;
+        height: auto !important;
+        padding-top: 100px;
+        padding-bottom: 20px;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(237deg, rgba(63, 114, 49, 0.2) 39%, rgba(63, 114, 49, 0.9) 100%),
+            url(img/png/cida-sorrindo-estudio-medio.png);
+        background-size: cover;
+        background-position: left top;
+        background-repeat: no-repeat;
+        z-index: 0 !important;
+    }
+
+    .hero-content {
+        width: 100%;
+        height: auto;
+        padding-top: 0px;
+        margin: 0 auto;
+        max-width: 600px;
+        text-align: left;
+        margin-top: 1rem;
+        padding-left: 30px;
+        padding-right: 30px;
+        z-index: 2;
+    }
+
+    .hero-content h1 {
+        font-size: 36px !important;
+        font-weight: 700;
+        line-height: 1.2;
+        text-transform: capitalize;
+        padding-bottom: 36px;
+        animation: entradaEsquerda 1.2s ease-out forwards;
+    }
+
+    .hero-content h2 {
+        padding-top: 20px;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 32px;
+        text-transform: capitalize;
+        padding-bottom: 36px;
+        animation: entradaDireita 1.2s ease-out forwards;
+    }
+
+    .btn {
+        margin-top: 0px;
+        font-size: 14px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .hero {
+      width: 100%;
+        min-height: 85vh !important; /* Remove a altura fixa para a seção não esticar */
+        display: flex;
+        flex-direction: column; /* Empilha o conteúdo verticalmente */
+        justify-content: flex-end;
+        
+        margin-top: 80px !important;
+        padding: 2rem 5% !important; /* Padding equilibrado */
+        
+        /* Ajuste do Fundo */
+        background: linear-gradient(45deg, rgba(63, 114, 49, 0.644) 0%, rgba(63, 114, 49, 0.055) 100%),
+                    url(img/png/cida-estudio-mobile.png);                    
+        background-size: cover!important; /* Use cover para preencher o fundo sem sobrar branco */
+        background-position: center 10% !important;
+        background-repeat: no-repeat;
+        padding-bottom: 3rem !important;
+
+    }
+
+    .hero-content {
+        width: 100%;
+        margin-top: 0 !important;
+        padding: 20px 0 !important;
+    }
+
+    .hero-content h1 {
+        font-size: 32px !important;
+        font-weight: 700;
+        line-height: 1.2;
+        text-transform: capitalize;
+        text-align: center;
+        padding-bottom: 5px;
+        animation: entradaEsquerda 1.2s ease-out forwards;
+    }
+
+    .hero-content h2 {
+        margin-top: 20px !important;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.4;
+        text-transform: capitalize;
+        padding: 0;
+        margin-bottom: 30px;
+        text-align: center;
+        animation: entradaDireita 1.2s ease-out forwards;
+    }
+
+    .btn {
+        display: block !important;    /* Transforma em bloco para aceitar as margens */
+        width: fit-content !important; /* Faz o botão ter apenas o tamanho do texto */
+        margin-left: auto !important;  /* Centraliza na esquerda */
+        margin-right: auto !important; /* Centraliza na direita */
+        text-align: center !important;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-size: 13px;
+     
+    }
+
+}
+
+/* =============================== */
+/*           BENEFÍCIOS            */
+/* =============================== */
+#beneficios,
+.benefits {
+    background: linear-gradient(180deg, #e5b00317 0%, #e5b00354);
+    background-color: #e5b00354;
+    /* Cor creme/off-white sutil */
+    padding: 4rem 10%;
+    /* O respiro que você perguntou antes */
+    /* Truque para não ficar uma linhazinha branca entre as seções */
+    padding-top: 40px;
+    padding-bottom: 80px;
+    position: relative !important;
+    overflow: visible !important;
+    z-index: 2;
+}
+
+.divisor-dourado {
+    width: 100%;
+    height: 3px;
+    display: block;
+    /* Gradiente que some nas pontas para não bater nas laterais do site */
+    background: linear-gradient(to right, transparent 5%, #bf7d1e 50%, transparent 95%);
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+    margin-top: -1px;
+
+
+}
+
+.benefits .container {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    padding: 1rem 0;
+    /* 1rem = 16px*/
+
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#beneficios h2 {
+    padding-top: 20px;
+    font-size: 40px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-style: italic;
+    text-align: center;
+    background: -webkit-linear-gradient(#c07e02, #C78404);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0px 2px 2px rgba(247, 244, 237, 0.904));
+    margin-bottom: 0.5rem;
+    z-index: 999;
+
+}
+
+#beneficios h3 {
+    color: #1B3015;
+    filter: drop-shadow(0px 2px 2px rgba(247, 244, 237, 0.904));
+    font-size: 30px;
+    font-weight: 900;
+    font-family: 'Cormorant Garamond', serif;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#beneficios p {
+    font-size: 16px;
+}
+
+.benefits-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 3rem auto 0;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.benefit-card {
+    padding-bottom: 20px;
+    background: #ffffff;
+    flex: 1;
+    min-width: 240px;
+    max-width: 280px;
+
+    /* Espaçamento generoso para o ar de luxo */
+    padding: 60px 30px;
+
+    /* Borda arredondada suave */
+    border-radius: 20px;
+
+    /* Sombra muito sutil (Soft Shadow) */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.384);
+
+    /* Borda quase imperceptível */
+    border: 1px solid #f5f5f5;
+
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+
+    /* Tipografia do card */
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    line-height: 1.4;
+}
+
+.benefit-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+    border-color: #BF953F33;
+    /* Um leve toque do dourado na borda */
+    font-size: 18px;
+}
+
+.icon-wraper-gold {
+    color: #BF953F;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.icon-wraper-gold:hover {
+    color: #BF953F;
+    font-size: 2.1rem;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 900px) and (max-width: 1199px) {
+
+    #beneficios,
+    .benefits {
+        width: 100%;
+        height: 100% auto;
+    }
+
+    #beneficios h2 {
+        padding: 1rem;
+    }
+
+
+    .benefits-grid {
+        display: grid;
+        /* Cria exatamente 2 colunas com larguras iguais */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2.5rem;
+
+        /* Centraliza o grid se os cards tiverem largura máxima */
+        max-width: 750px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .benefit-card {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
+}
+
+@media (min-width: 769px) and (max-width:   899px) {
+
+    #beneficios,
+    .benefits {
+       width: 100% !important;
+        height: auto !important; /* Removido o '100% auto' que é inválido no CSS */
+        min-height: auto !important;
+        padding-top: 40px !important; /* Cria um espaço no topo após o divisor */
+        padding-bottom: 40px !important;
+        position: relative !important;
+
+    }
+
+    .divisor-dourado {
+        width: 100%;
+        height: 3px;
+        display: block;
+        margin: 0 auto !important;
+        z-index: 10;
+        position: relative;
+        margin-top: 0 !important; /* Sem forçar para cima */
+        margin-bottom: 0 !important;
+    }
+
+    .benefits .container {
+        width: 90% !important;
+        height: auto !important; /* Mudei de 500px fixos para auto, evitando que o texto de baixo corte */
+        text-align: center;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    #beneficios h2 {
+        font-size: 32px !important; /* Reduzido levemente para telas de iPad */
+        margin-top: 20px !important;
+        margin-bottom: 1rem !important;
+
+    }
+
+    #beneficios h3 {
+        font-size: 24px !important;
+        font-weight: 700;
+        margin-bottom: 25px !important;
+    }
+
+    .benefit-grid {
+        margin-bottom: 0px;
+    }
+
+    .benefit-card {
+        margin-bottom: 30px;
+    }
+
+    
+
+}
+
+@media (max-width: 768px) {
+
+    #beneficios,
+    .benefits {
+        margin-top: 0 !important;
+        align-items: center;
+        justify-content: flex-start !important;
+        padding-top: 60px !important;
+        padding-bottom: 60px !important;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto !important;
+        min-height: auto !important;
+    }
+
+    .benefits .container {
+        width: 100%;
+        max-width: 1200px;
+        height: auto !important;
+        margin-top: 0 !important;
+        /* Remove o empurrão externo */
+        padding-top: 40px;
+        /* Cria espaço interno de forma segura */
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #beneficios h2 {
+        font-size: 36px;
+        padding-top: 1rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+
+    }
+
+    #beneficios h3 {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        filter: drop-shadow(0px 2px 2px rgba(247, 244, 237, 0.904));
+    }
+
+    .benefit-grid {
+        display: flexbox !important;
+        margin-bottom: 30px;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin: 3rem auto 0;
+        /* O 'auto' nas laterais centraliza o grid na página */
+        max-width: 1200px;
+        width: 100%;
+    }
+
+}
+
+/* =============================== */
+/*           SERVIÇOS              */
+/* =============================== */
+.servicos {
+    width: 1000px;
+    margin: 0 auto 20px;
+    margin-top: 20px;
+    /* Remove o margin-top para respeitar o espaçamento vindo do divisor */
+    padding: 3rem 0;
+    /*background: #fff;*/
+    text-align: center;
+    border: solid 3px;
+    border-radius: 32px;
+    border: 2px solid #8F5F01;
+    background: #fcfcfc;
+}
+
+.servicos h2 {
+    font-family: "Cormorant Garamond", sans-serif, montesserrat, Helvetica;
+    font-size: 44px;
+    font-weight: 800;
+    text-transform: none;
+    font-style: normal;
+    line-height: 1.3em;
+    -webkit-text-stroke-color: rgb(143, 95, 1);
+    stroke: rgb(143, 95, 1);
+    text-shadow: rgba(85, 2, 2, 0.3) 0px 4px 4px;
+    color: rgb(143, 95, 1);
+}
+
+.servicos h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 24px;
+    font-weight: 800;
+    font-style: normal;
+    line-height: 1.6em;
+    text-shadow: rgba(7, 0, 0, 0.3) 0px 4px 4px;
+    color: rgb(143, 95, 1);
+    padding: 20px;
+}
+
+.servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.servico-card {
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('img/jpg/folhas.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 3rem 2rem;
+    border-radius: 1.5rem;
+    transition: 0.3s;
+    border: 1px solid #ffecf3;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centraliza todos os itens horizontalmente */
+    text-align: center;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.servico-card:hover {
+    transform: translateY(-10px);
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('img/jpg/folhas.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 0 15px 30px rgba(255, 116, 198, 0.1);
+}
+
+.servico-card .icon {
+    width: 120px;
+    height: 120px;
+    display: block;
+
+    /* O SEGREDO: margin: 0 auto centraliza elementos block */
+    margin: 0 auto 20px auto;
+
+    background-position: center;
+    background-size: contain;
+    /* 'contain' é melhor para ícones não cortarem */
+    background-repeat: no-repeat;
+}
+
+.servico-card h4 {
+    margin: 20px;
+    font-family: "Playfair Display", serif;
+    font-size: 28px;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 1em;
+    color: rgb(180, 114, 92);
+    background-color: #ffffff80;
+}
+
+.servico-card p {
+    background-color: #ffffff80;
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 28px;
+    color: rgb(143, 95, 1);
+}
+
+.btn-precos {
+    display: inline-block;
+    margin-top: 15px;
+    color: #fff;
+    font-family: 'Montserrat';
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 20px;
+    background-color: transparent;
+    background-image: linear-gradient(90deg, rgba(141, 49, 18, 0.8) 0%, rgba(187, 109, 108, 1) 100%);
+    padding: 10px 14px;
+    border: none;
+    cursor: pointer;
+    animation: pulsar 2s infinite ease-in-out;
+
+}
+
+.btn-precos:hover {
+    background-color: transparent;
+    background-image: linear-gradient(90deg, #CF8282 0%, #BB6D6C 100%);
+    border: none;
+    animation-play-state: paused;
+    transform: scale(1.1);
+}
+
+/* Estilo da lista de preços dentro do modal */
+.service-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.summary {
+    margin-top: 15px;
+}
+
+.divisor-dourado.bottom {
+    margin-top: -3px;
+    /* Alinha o divisor inferior perfeitamente ao final da seção */
+    margin-bottom: 40px;
+    /* Espaçamento adaptável para a próxima seção */
+}
+
+#modalBody input {
+    width: 100%;
+    margin: 8px 0;
+    padding: 8px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background: #ffffff;
+    width: 95%;
+    max-width: 420px;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 0.2s ease;
+    position: relative;
+}
+
+#modalTitle {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-family: "Montserrat";
+}
+
+#modalBody p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 16px;
+}
+
+#modalBody input {
+    width: 100%;
+    padding: 12px 14px;
+    margin: 8px 0;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+}
+
+#modalBody input:hover {
+    border-color: #bbb;
+}
+
+#modalBody input:focus {
+    outline: none;
+    border-color: #222;
+    background: #fff;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
+#modalBody input::placeholder {
+    color: #999;
+}
+
+#modalBody input[type="date"],
+#modalBody input[type="time"] {
+    cursor: pointer;
+}
+
+#step2 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tabs {
+    display: flex;
+    background: #f5f5f5;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    padding: 4px;
+    gap: 4px;
+    margin-bottom: 16px;
+}
+
+.tabs button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    font-size: 14px;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tabs button.active {
+    background: #ffffff;
+    color: #222;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.tabs button:hover {
+    color: #000;
+}
+
+.service-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.service-item.selected {
+    background: #f5f5f5;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.btn-select {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.2s ease;
+}
+
+.btn-select:hover {
+    background: #222;
+    color: white;
+    border-color: #222;
+}
+
+.summary {
+    margin-top: 16px;
+    font-size: 14px;
+    color: #444;
+}
+
+.btn-agendar-modal {
+    width: 100%;
+    margin-top: 16px;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(90deg, #68BE4B 0%, #80B46E 100%);
+    box-shadow: 0 4px 4px 0 rgba(249, 249, 247, 0.54) inset, 0 4px 20px 0 rgba(31, 25, 25, 0.52);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: "Montserrat";
+}
+
+.btn-agendar-modal:hover {
+    transform: translateY(-1px);
+    background: linear-gradient(137deg, #8FE773 0%, #66B44C 100%);
+    box-shadow: 0 4px 4px 0 rgba(249, 249, 247, 0.54) inset, 0 4px 20px 0 rgba(31, 25, 25, 0.52);
+}
+
+
+.close-modal {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    font-size: 18px;
+    color: #999;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.close-modal:hover {
+    color: #000;
+    transform: scale(1.1);
+}
+
+
+.botaoAgendamento {
+    margin-top: 3rem;
+}
+
+@media (min-width: 900px) and (max-width: 1199px) {
+    .servicos {
+        margin-top: 40px;
+        width: 100vh;
+        height: 900px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+    }
+
+    .servicos h2 {
+        font-size: 36px;
+        font-weight: 800;
+
+    }
+
+    .servicos h3 {
+        font-size: 20px;
+    }
+
+    .servicos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+
+    .servico-card {
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 3rem 2rem;
+
+
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Centraliza todos os itens horizontalmente */
+        text-align: center;
+
+        position: relative;
+        overflow: hidden;
+    }
+
+    .servico-card:hover {
+        transform: translateY(-10px);
+        background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('img/jpg/folhas.jpg');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        box-shadow: 0 15px 30px rgba(255, 116, 198, 0.1);
+    }
+
+    .servico-card .icon {
+        width: 120px;
+        height: 120px;
+        display: block;
+
+        /* O SEGREDO: margin: 0 auto centraliza elementos block */
+        margin: 0 auto 20px auto;
+
+        background-position: center;
+        background-size: contain;
+        /* 'contain' é melhor para ícones não cortarem */
+        background-repeat: no-repeat;
+    }
+
+    .servico-card h4 {
+        margin: 20px;
+        font-family: "Playfair Display", serif;
+        font-size: 28px;
+        font-weight: 700;
+        font-style: normal;
+        line-height: 1em;
+        color: rgb(180, 114, 92);
+        background-color: #ffffff80;
+    }
+
+    .servico-card p {
+        background-color: #ffffff80;
+        font-family: "Playfair Display", serif;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 28px;
+        color: rgb(143, 95, 1);
+    }
+
+    .btn-precos {
+        display: inline-block;
+        margin-top: 15px;
+        color: #fff;
+        font-family: 'Montserrat';
+        font-size: 16px;
+        text-decoration: none;
+        font-weight: 600;
+        border-radius: 20px;
+        background-color: transparent;
+        background-image: linear-gradient(90deg, rgba(141, 49, 18, 0.8) 0%, rgba(187, 109, 108, 1) 100%);
+        padding: 10px 14px;
+        border: none;
+        cursor: pointer;
+        animation: pulsar 2s infinite ease-in-out;
+
+    }
+
+    .btn-precos:hover {
+        background-color: transparent;
+        background-image: linear-gradient(90deg, #CF8282 0%, #BB6D6C 100%);
+        border: none;
+        animation-play-state: paused;
+        transform: scale(1.1);
+    }
+
+}
+
+@media (min-width: 769px) and (max-width: 899px) {
+    .servicos {
+        width: 100% !important;
+        height: auto !important; /* Removido o '100% auto' que é inválido no CSS */
+        min-height: auto !important;
+        margin-top: 20px;
+        padding-top: 40px !important; /* Cria um espaço no topo após o divisor */
+        padding-bottom: 40px !important;
+        position: relative !important;
+    }
+
+    .servicos h2 {
+        font-size: 36px;
+        font-weight: 800;
+
+    }
+
+    .servicos h3 {
+        font-size: 20px;
+    }
+
+    .servicos-grid {
+        display: flex !important; /* Corrigido de 'flexbox' para 'flex' */
+        flex-wrap: wrap !important; /* Permite que os cards quebrem linha se faltar espaço */
+        justify-content: center !important; /* Centraliza os cards no meio da seção */
+        gap: 20px !important;
+        width: 100% !important;
+        margin: 2rem auto 0 !important;
+    }
+
+    .servico-card {
+        margin: 0 !important; /* Remove as margens laterais que espremiam o conteúdo */
+        padding: 3rem 2rem !important;
+        
+        /* Igualamos a lógica dos benefícios: criamos um tamanho ideal para o tablet */
+        flex: 1 1 280px !important; 
+        max-width: 320px !important; /* Define o limite máximo para ele não ficar gigante e esticado */
+        
+        box-sizing: border-box !important;
+    }
+
+    .servico-card:hover {
+        transform: translateY(-10px);
+        background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('img/jpg/folhas.jpg');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        box-shadow: 0 15px 30px rgba(255, 116, 198, 0.1);
+    }
+
+    .servico-card .icon {
+        width: 100px;
+        height: 100px;
+        display: block;
+
+        /* O SEGREDO: margin: 0 auto centraliza elementos block */
+        margin: 0 auto 15px auto;
+
+        background-position: center;
+        background-size: contain;
+        /* 'contain' é melhor para ícones não cortarem */
+        background-repeat: no-repeat;
+    }
+
+    .servico-card h4 {
+        margin: 18px;
+        font-size: 24px;
+    }
+
+    .servico-card p {
+        font-size: 16px;
+    }
+
+    .btn-precos {
+        font-size: 14px !important;
+        padding: 10px 14px !important;
+
+    }
+
+
+}
+
+@media (max-width: 768px) {
+    .servicos {
+        margin-top: 40px;
+        width: 100vh;
+        height: 900px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+    }
+
+    .servicos h2 {
+        font-size: 32px;
+        font-weight: 800;
+
+    }
+
+    .servicos h3 {
+        font-size: 24px;
+    }
+
+    .servicos-grid {
+        /* display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem; */
+        display: flexbox !important;
+        margin-bottom: 30px;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin: 3rem auto 0;
+        /* O 'auto' nas laterais centraliza o grid na página */
+        width: 100%;
+    }
+
+    .servico-card {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        padding: 3rem 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Centraliza todos os itens horizontalmente */
+        text-align: center;
+
+        position: relative;
+        overflow: hidden;
+    }
+
+
+    .servico-card .icon {
+        width: 100px;
+        height: 100px;
+        display: block;
+
+        /* O SEGREDO: margin: 0 auto centraliza elementos block */
+        margin: 0 auto 20px auto;
+
+        background-position: center;
+        background-size: contain;
+        /* 'contain' é melhor para ícones não cortarem */
+        background-repeat: no-repeat;
+    }
+
+    .servico-card h4 {
+        margin: 18px;
+        font-size: 30px;
+    }
+
+    .servico-card p {
+        font-size: 18px;
+    }
+
+    .btn-precos {
+        font-size: 14px;
+        padding: 10px 14px;
+    }
+
+}
+
+/*
+
+/* =============================== */
+/*          QUEM SOU EU            */
+/* =============================== */
+
+.quemSouEu {
+    min-height: 700px;
+    height: auto;
+    position: relative;
+    padding: 5rem 0;
+    background: linear-gradient(284deg, rgba(252, 198, 145, 0.747) 15%, rgba(248, 175, 110, 0.9) 39%, rgba(255, 203, 164, 0.9) 100%),
+        linear-gradient(to bottom, transparent 75%, #e5b00317 100%),
+        url('img/jpg/depilacao-cera-pernas.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50px;
+
+}
+
+.quemSouEu-container,
+.title-quemSouEu {
+    position: relative;
+    z-index: 1;
+}
+
+.quemSouEu .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.custom-shape-divider-top-1777244327 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1777244327 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 163px;
+}
+
+.custom-shape-divider-top-1777244327 .shape-fill {
+    fill: #F9F8F5;
+}
+
+.title-quemSouEu {
+    width: 100%;
+    order: 1;
+    font-family: "Playfair Display", serif;
+    font-size: 42px;
+    font-weight: 800;
+    text-transform: none;
+    text-align: center;
+    font-style: normal;
+    line-height: 1.3em;
+    -webkit-text-stroke-color: rgba(143, 95, 1, 1);
+    stroke: #572f0f;
+    text-shadow: rgb(26, 21, 11) 4px 0px 4px;
+    color: rgba(249, 249, 247, 1);
+    margin-top: 0;
+ 
+
+}
+
+.text-quemSouEu {
+    order: 2;
+    flex: 1;
+    min-width: 320px;
+    max-width: 550px;
+    font-size: 1.1rem;
+    line-height: 1.7em;
+    text-align: left;
+    color: #572f0f;
+    padding: 0px 20px;
+    margin: 0px 10px 20px;
+}
+
+.quemSouEu img{
+    order: 3;
+    width: 400px;
+    height: 500px;
+    z-index: 999;
+
+}
+
+.btn-quemSouEu {
+    order: 4;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.btn-quemSouEu .btn {
+    padding: 15px 40px;
+    background: linear-gradient(237deg #e7a678 10%, #ad721f 39%, #57390f 100%);
+    /* Tom dourado que você usou na linha */
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-family: 'montserrat';
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-quemSouEu .btn:hover {
+    transform: scale(1.05);
+    background: #ad721f;
+}
+
+
+
+/* Mobile */
+@media (max-width: 820px) {
+    .quemSouEu {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        height: auto !important;
+        padding: 60px 5% !important;
+        text-align: center !important;
+
+    }
+
+    #quemSouEu .container {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        gap: 1.5rem !important;
+    }
+
+     .quemSouEu img {
+        order: 1 !important;
+        width: 100% !important;
+        max-width: 330px !important;
+        height: auto !important;
+       margin: 0 auto !important;
+    }
+
+    .title-quemSouEu{
+        order: 2 !important;
+        font-size: 28px !important;
+        width: 100% !important;
+        text-align: center !important;
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
+        padding-bottom: 0 !important;
+
+    } 
+
+    .text-quemSouEu{
+       order: 3 !important;
+        font-size: 15px !important;
+        text-align: left !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 10px !important;
+    }
+
+    .btn-quemSouEu {
+        order: 4;
+        font-size: 14px;
+        padding: 22px 16px;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        margin-top: 15px !important;
+    }
+
+    .btn-quemSouEu .btn {
+        font-size: 14px !important;
+        padding: 16px 32px !important; /* Ajustado padding exagerado de 22px 16px */
+    }
+
+}
+
+/* =============================== */
+/*          DEPOIMENTOS            */
+/* =============================== */
+
+.testimonials {
+    padding: 8rem 0;
+    /* background-color: #fcfcfc; Fundo levemente cinza para destacar os cards brancos */
+    background-color: transparent;
+    background-image: radial-gradient(at center center, #587051a4 0%, #f9f9f7 75%), url("img/webp/depil-facial-sobrancelha.webp");
+    opacity: 1;
+    transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    /* Esquerda menor, Direita maior */
+    gap: 4rem;
+    align-items: start;
+}
+
+/* --- Lado Esquerdo (Resumo) --- */
+.testimonials-header .subtitle {
+
+    text-transform: uppercase;
+    color: #b87a65;
+    /* Seu terracota */
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+
+}
+
+.testimonials-header h2 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: bolder;
+}
+
+.summary-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+/* --- Lado Direito (Cards/Carrossel) --- */
+.testimonial-list {
+    display: flex;
+    /* Se for carrossel, o container precisa ser flex */
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.testimonial {
+    background: white;
+    padding: 3rem;
+    border-radius: 2rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    /* Sombra bem suave */
+    position: relative;
+    border: 1px solid #f0f0f0;
+}
+
+.quote-mark {
+    font-size: 4rem;
+    color: #b87a65;
+    opacity: 0.15;
+    position: absolute;
+    top: 1rem;
+    left: 2rem;
+    font-family: serif;
+}
+
+.testimonial p {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #444;
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial .author {
+    display: block;
+    margin-top: 2rem;
+    font-weight: 700;
+    color: #b87a65;
+    /* Troquei o rosa pelo seu terracota para manter o padrão */
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+/* Container do Card */
+.testimonial-card {
+    background: rgba(255, 255, 255, 0.555);
+    padding: 2.5rem;
+    border-radius: 2rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 320px;
+}
+
+/* Topo do Card: Google + Estrelas */
+.card-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.google-logo {
+    width: 20px;
+    /* Logo pequena conforme referência */
+    height: auto;
+}
+
+.stars {
+    color: #fbbc05;
+    /* Amarelo Google */
+    font-size: 0.9rem;
+}
+
+/* Conteúdo do Texto */
+.testimonial-content {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    flex-grow: 1;
+}
+
+/* Rodapé do Card: Avatar Circular + Nome */
+.card-bottom {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 2rem;
+}
+
+.client-thumb {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    /* Círculo perfeito */
+    object-fit: cover;
+}
+
+.author {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+/* Paginação (Dots) */
+.pagination-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 2.5rem;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: #ddd;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot.active {
+    background: #b87a65;
+    /* Terracota da Cida */
+}
+
+.dot.current-highlight {
+    background: #8b5a4a;
+    /* Um tom mais escuro para o slide atual */
+    transform: scale(1.2);
+}
+
+.carousel-container {
+    position: relative;
+    overflow: visible;
+    /* Para as setas aparecerem fora do card */
+}
+
+.testimonial-slider {
+    overflow: hidden;
+    /* Esconde os cards fora da visão */
+    border-radius: 2rem;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.testimonial-card {
+    min-width: 100%;
+    /* Mostra um card por vez */
+    box-sizing: border-box;
+    background: white;
+    padding: 3rem;
+    /* Estilos de borda e sombra já definidos anteriormente */
+}
+
+/* --- Setas de Navegação --- */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    color: #b87a65;
+}
+
+.nav-btn:hover {
+    background: #b87a65;
+    color: white;
+    border-color: #b87a65;
+}
+
+.prev {
+    left: -60px;
+}
+
+.next {
+    right: -60px;
+}
+
+/* --- Dots --- */
+.dots-container {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 2rem;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dot.active {
+    background: #b87a65;
+    transform: scale(1.3);
+}
+
+
+@media (max-width: 1200px) {
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+}
+
+
+@media (min-width: 900px) and (max-width:1199px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+
+@media (max-width: 820px) {
+    .testimonials {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        /* Centraliza horizontalmente */
+        justify-content: center !important;
+        /* Centraliza verticalmente (se houver altura) */
+        width: 100% !important;
+        /* Sempre use % para largura no mobile */
+        height: auto !important;
+        /* Deixa a seção crescer conforme o conteúdo */
+        padding: 60px 5% !important;
+        /* Use padding para dar espaço, nunca margin-top */
+        text-align: center !important;
+        padding: 60px 0 !important; 
+        width: 100% !important;
+        overflow: hidden !important;
+
+    }
+
+    .testimonials-grid {
+       display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important; /* MUDANÇA: Mudamos de 90% para 100% para o carrossel ter a largura total da tela */
+        max-width: 100vw !important;
+        overflow: hidden !important;
+        padding: 0 20px !important; /* O respiro lateral agora é feito com padding, protegendo o carrossel */
+        margin: 0 auto !important;
+        gap: 2rem !important;
+    }
+
+    .testimonial-slider {
+        width: 100% !important;
+        overflow: hidden !important;
+        /* Essencial para o carrossel não vazar */
+    }
+
+    /* --- (Resumo) --- */
+    .testimonials-header .subtitle {
+        order: 1;
+
+    }
+
+    .testimonials-header h2 {
+        order: 2;
+
+    }
+
+    .summary-text {
+        order: 3;
+    }
+
+    .carousel-container {
+        text-align: center;
+        width: 100% !important; /* Mudei de 100vw para 100% para não vazar */
+        max-width: 100% !important;
+        height: auto !important;
+        padding: 0 !important;
+        overflow: hidden !important; /* Trava o scroll lateral do container */
+        position: relative !important;
+    }
+
+    .testimonial-slider {
+        box-sizing: border-box !important;
+        width: 100% !important;
+        min-width: 100% !important;
+        margin: 0 !important;
+        border-radius: 1.5rem !important;
+        min-height: auto !important;
+        overflow: hidden !important; /* O slider track que faz o movimento fica escondido aqui */
+    }
+
+    .testimonial-card {
+        box-sizing: border-box !important;
+        min-width: 100% !important;
+        width: 100% !important;
+        margin: 0 !important;
+        border-radius: 1.5rem !important;
+        min-height: auto !important;
+    }
+
+    #slider-track {
+        display: flex !important;
+        width: 100% !important;
+    }
+
+    .dots-container {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 12px !important; /* Aumentamos o espaço para facilitar o clique com o polegar */
+        margin-top: 1.5rem !important; /* Reduzimos levemente a margem para economizar espaço vertical */
+        width: 100% !important;
+        padding-bottom: 20px; /* Garante que os dots não fiquem colados no final da seção ou do navegador */
+    }
+
+    /* Tipografia Mobile */
+    .testimonials-header h2 {
+        font-size: 1.8rem !important;
+        line-height: 1.3 !important;
+    }
+
+    .summary-text {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+        padding: 0 15px !important;
+    }
+
+    .dot {
+        width: 10px !important; /* Aumentamos levemente o tamanho do ponto para visibilidade */
+        height: 10px !important;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+}
+
+/* =============================== */
+/*      SEÇÃO DE AGENDAMENTO       */
+/* =============================== */
+
+
+.agendamentoFinal {
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+    height: 60vh;;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    /* Configuração da Imagem de Fundo */
+    background-image: url('img/webp/mulher-perfil-grande.webp');
+    /* Use sua imagem aqui */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* O EFEITO MÁGICO */
+    background-attachment: fixed;
+}
+
+/* Overlay para dar contraste ao texto */
+.parallax-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(136, 171, 124, 0.4);
+    /* Escurece 40% da imagem */
+    z-index: 1;
+}
+
+.agendamentoFinal .container {
+    position: relative;
+    z-index: 2;
+    /* Garante que o texto fique acima do overlay */
+    text-align: center;
+    color: #ffffff;
+    /* Texto branco para destacar no fundo escuro */
+}
+
+/* Estilização dos textos baseada na imagem enviada */
+.title-agendamentoFinal {
+    font-family: 'Playfair Display', serif;
+    /* Ou a fonte elegante que estiver usando */
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.agendamentoFinal h3 {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 35px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Importante: Mobile nem sempre suporta background-attachment: fixed */
+@media (max-width: 768px) {
+    .agendamentoFinal {
+        /* Melhora a performance em celulares */
+        min-height: 60vh !important; /* Reduz a altura para não esticar tanto a foto */
+        background-attachment: scroll !important; /* Melhora a nitidez e performance no mobile */
+        background-position: center !important; 
+        padding: 40px 0 !important;
+    }
+
+    .agendamentoFinal .btn-menuPrincipal{
+        display: inline-block !important; /* O inline-block é melhor para botões */
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    .title-agendamentoFinal {
+        font-size: 1.8rem !important; /* Diminuir o texto ajuda a manter a imagem menor e mais nítida */
+        padding: 0 10%;
+    }
+
+    .agendamentoFinal h3 {
+        font-size: 1rem !important;
+        padding: 0 10%;
+    }
+
+}
+
+
+
+/* =============================== */
+/*             FOOTER              */
+/* =============================== */
+.site-footer {
+    background-color: rgb(136, 171, 124, 0.85);
+    color: #fff;
+    padding: 4rem 0 2rem;
+    text-align: center;
+
+    /* Configuração da logo "transparente" ao fundo */
+    background-image: url('img/png/logo-cida-rodape.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30%;
+    /* Ajuste o tamanho da logo de fundo aqui */
+    /* Esse blend-mode ajuda a logo a se misturar com o verde */
+    background-blend-mode: overlay;
+}
+
+.footer-content {
+    display: grid;
+    /* Define 3 colunas fixas para manter o alinhamento da referência */
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    text-align: left;
+    /* Alinhamento padrão à esquerda */
+
+}
+
+.site-footer img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 1rem;
+    background-size: cover;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-column-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+.footer-column-menu {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+
+}
+
+.footer-column-menu a,
+.footer-column-menu p {
+    cursor: pointer;
+    gap: 14px;
+    padding-bottom: 10px;
+    font-size: 15px;
+}
+
+.footer-column-menu a:hover {
+    color: #fff;
+    font-size: 17px;
+}
+
+
+/* Coluna da Logo e Navegação Rápida centralizadas */
+.footer-column-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Coluna "Fale Comigo" alinhada à esquerda com ícones */
+.footer-column-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Alinha o conteúdo à esquerda */
+    text-align: left;
+}
+
+.footer-column-contact p,
+.footer-column-contact a {
+    display: flex;
+    align-items: left;
+    gap: 12px;
+    /* Espaço entre o ícone e o texto */
+    margin-bottom: 0.8rem;
+    text-shadow: none;
+
+}
+
+.footer-content h6 {
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    /* Ajustado para escala da referência */
+    font-weight: 700;
+    color: #F9F9F7;
+    text-shadow: 0 4px 4px #8F5F01;
+    margin-bottom: 1.5rem;
+}
+
+.footer-content p,
+.footer-content a {
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #F9F9F7;
+    text-decoration: none;
+}
+
+/* Logo - Ajuste para não distorcer */
+.site-footer img {
+    width: 200px;
+    /* Reduzido para proporcionalidade */
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.Copyright {
+    width: 95%;
+    max-width: 1200px;
+    margin: 3rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    /* Linha sutil */
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+/* Ajuste para Widescreen (Telas > 1200px) */
+@media (min-width: 1200px) {
+
+    .container,
+    .footer-content {
+        max-width: 1140px;
+        /* Mantém o conteúdo em uma largura confortável */
+        margin: 0 auto;
+    }
+}
+
+/* Ajuste para tablets (768px a 1024px) */
+@media (max-width: 1024px) {
+    .footer-content {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+
+    .footer-column-logo img {
+        width: 150px;
+        /* Reduz a logo ligeiramente */
+    }
+}
+
+/* Ajuste para celulares (abaixo de 767px)  */
+@media (max-width: 820px) {
+
+    /* Ajuste do Rodapé */
+    .site-footer {
+        background-image: none;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        /* Coluna única */
+        text-align: center;
+        gap: 3rem;
+    }
+
+    .footer-column-menu {
+        align-items: center;
+        /* Centraliza contatos no mobile */
+        text-align: center;
+    }
+
+    .footer-column-contact {
+        align-items: center;
+        /* Centraliza contatos no mobile */
+        text-align: center;
+    }
+
+    .footer-column-logo img {
+        width: 300px;
+        height: auto;
+        margin-bottom: 1rem;
+    }
+
+    /* Ajuste da Hero (Seção Inicial) */
+    .hero {
+        flex-direction: column;
+        padding: 3rem 1rem;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+        /* Título menor para telas pequenas */
+    }
+
+    /* Navegação */
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* =============================== */
+/*            MODAL                */
+/* =============================== */
+dialog {
+    border: none;
+    border-radius: 1.5rem;
+    padding: 3rem;
+    max-width: 500px;
+    width: 90%;
+    margin: auto;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+dialog h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+dialog form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+dialog input,
+dialog select {
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-family: "Montserrat";
+}
+
+
+/* =============================== */
+/*            ANIMAÇÕES                */
+/* =============================== */
+
+/* Animação para o conteúdo (Entra pela esquerda) */
+@keyframes entradaEsquerda {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animação para a imagem (Entra pela direita) */
+@keyframes entradaDireita {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulsar {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 20px 0 rgba(31, 25, 25, 0.52);
+    }
+
+    50% {
+        transform: scale(1.05);
+        /* Cresce 5% */
+        box-shadow: 0 8px 25px 0 rgba(186, 201, 181, 0.6);
+        /* Aumenta o brilho verde */
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 20px 0 rgba(31, 25, 25, 0.52);
+    }
+
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 20px 0 rgba(31, 25, 25, 0.52);
+    }
+}
