@@ -980,7 +980,7 @@ nav ul li a:hover {
 }
 
 .servico-card {
-    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('img/jpg/folhas.jpg');
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('img/webp/folhas.webp');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
