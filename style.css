@@ -592,7 +592,7 @@ nav ul li a:hover {
         
         /* Ajuste do Fundo */
         background: linear-gradient(45deg, rgba(63, 114, 49, 0.644) 0%, rgba(63, 114, 49, 0.055) 100%),
-                    url(img/png/cida-estudio-mobile.png);                    
+                    url(img/webp/cida-estudio-mobile.webp);                    
         background-size: cover!important; /* Use cover para preencher o fundo sem sobrar branco */
         background-position: center 10% !important;
         background-repeat: no-repeat;
