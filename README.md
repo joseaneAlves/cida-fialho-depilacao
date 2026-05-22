@@ -50,4 +50,4 @@ O site foi milimetricamente testado e otimizado para múltiplos breakpoints, gar
 
 1. Clone este repositório:
    ```bash
-   git clone [https://github.com/seu-usuario/cida-fialho-depilacao.git](https://github.com/joseaneAlves/cida-fialho-depilacao.git)
+   git clone https://github.com/joseaneAlves/cida-fialho-depilacao.git
