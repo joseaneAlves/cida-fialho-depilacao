@@ -21,7 +21,7 @@
   <!-- HERO SECTION -->
   <nav class="navbar">
     <div class="nav-logo">
-      <img src="img/logo-cida-atualizado.webp" alt="Cida Fialho"> 
+      <img src="img/logo-cida-atualizado.webp" alt="Cida Fialho">
     </div>
 
     <div class="nav-container">
@@ -32,8 +32,8 @@
         <li><a href="#quemSouEu">Quem Sou Eu</a></li>
         <li><a href="#depoimentos">Depoimentos</a></li>
       </ul>
-      
-      
+
+
       <div class="hamburger" id="hamburger">
         <div class="bar1"></div>
         <div class="bar2"></div>
@@ -154,7 +154,7 @@
         segurança, saúde e conforto em cada sessão.
       </p>
 
-        <img src="img/webp/moldura-cida.webp" alt="Depiladora Cida Fialho" class="img-cida">
+      <img src="img/webp/moldura-cida.webp" alt="Depiladora Cida Fialho" class="img-cida">
 
     </div>
 
@@ -326,8 +326,15 @@
 
           <input type="text" placeholder="Nome" id="name">
           <input type="text" placeholder='WhatsApp' id="phone">
+          
+          <label for="date" style="font-family: 'Montserrat'; font-size: 0.9rem; display: block; margin-top: 1rem; margin-bottom: 0.5rem; color: #333;">Escolha o dia do atendimento:</label>
           <input type="date" id="date">
-          <input type="time" id="time">
+      
+          <!--  <input type="time" id="time"> -->
+          <label for="container-horarios"
+            style="font-family: 'Montserrat'; font-size: 0.9rem; display: block; margin-top: 1rem; margin-bottom: 0.5rem; color: #333;">Escolha
+            o horário disponível:</label>
+          <div id="container-horarios" class="grade-horarios"></div>
 
           <button id="confirm" class="btn-agendar-modal">
             Confirmar agendamento

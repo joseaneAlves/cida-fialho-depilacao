@@ -1275,6 +1275,66 @@ nav ul li a:hover {
     transform: scale(1.1);
 }
 
+/* ===================================================
+   GRADE DE HORÁRIOS DINÂMICOS (MODAL STEP 2)
+   =================================================== */
+
+/* Container que organiza os botões em colunas responsivas */
+.grade-horarios {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+  max-height: 220px;
+  overflow-y: auto;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fafafa;
+  margin-bottom: 1.5rem;
+}
+
+/* Estilo padrão para todos os botões de horário */
+.btn-fatia-horario {
+  background-color: #ffffff;
+  color: #333333;
+  border: 1px solid #cccccc;
+  padding: 8px 4px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+}
+
+/* Efeito Hover nos botões disponíveis */
+.btn-fatia-horario:not(:disabled):hover {
+  background-color: #f4ebe1;
+  border-color: #BF953F;
+  color: #BF953F;
+  transform: translateY(-1px);
+}
+
+/* O GRANDE SEGREDO: Estilo do botão quando for clicado pelo usuário */
+.btn-fatia-horario.selecionado {
+  background-color: #BF953F !important;
+  color: #ffffff !important;
+  border-color: #BF953F !important;
+  box-shadow: 0 4px 10px rgba(191, 149, 63, 0.3);
+}
+
+/* Estilo para os botões bloqueados (Almoço, Ocupado, Fechado) */
+.btn-fatia-horario:disabled {
+  background-color: #eaeaea;
+  color: #999999;
+  border-color: #dddddd;
+  cursor: not-allowed;
+  font-size: 0.75rem;
+  font-weight: 400;
+  opacity: 0.7;
+}
+
 
 .botaoAgendamento {
     margin-top: 3rem;
