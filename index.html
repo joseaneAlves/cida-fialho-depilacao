@@ -286,66 +286,67 @@
   </footer>
 
   <!-- MODAL PREÇOS DOS SERVIÇOS-->
-  <div id="modalPrecos" class="modal">
-    <div class="modal-content">
+ <div id="modalAgendamento" class="modal-container" style="display: none;">
+  <div class="modal-content">
+    <span class="close-modal" id="closeModal">&times;</span>
+    
+    <h2 id="modalTitle">Selecione o sexo para começar</h2>
 
-      <span class="close-modal">&times;</span>
+    <div id="step0" class="modal-step">
+      <div class="grupo-sexo">
+        <label class="opcao-genero" for="masc">
+          <input type="radio" id="masc" name="sexo" value="m">
+          <span>Masculino</span>
+        </label>
+        <label class="opcao-genero" for="fem">
+          <input type="radio" id="fem" name="sexo" value="f">
+          <span>Feminino</span>
+        </label>
+      </div>
+      <button type="button" onclick="selecionarSexoEContinuar()" class="btn-agendar-modal">Avançar</button>
+    </div>
 
-      <h3 id="modalTitle">Escolha seu serviço</h3>
-
-      <div id="modalBody">
-
-        <!-- STEP 1 -->
-        <div id="step1">
-
-          <p>Veja os valores e agende em poucos segundos</p>
-
-          <div class="tabs">
-            <button onclick="changeTab('facial')">Facial</button>
-            <button onclick="changeTab('corporal')">Corporal</button>
-            <button onclick="changeTab('combos')">Combos</button>
-          </div>
-
-          <div id="services"></div>
-
-          <div class="summary">
-            <p id="selectedService">Nenhum selecionado</p>
-            <p id="total">Total: R$ 0</p>
-          </div>
-
-          <button id="nextStep" class="btn-agendar-modal">
-            Agendar agora
-          </button>
-
-        </div>
-
-        <!-- STEP 2 -->
-        <div id="step2" style="display:none;">
-
-          <h4>Finalizar agendamento</h4>
-
-          <input type="text" placeholder="Nome" id="name">
-          <input type="text" placeholder='WhatsApp' id="phone">
-          
-          <label for="date" style="font-family: 'Montserrat'; font-size: 0.9rem; display: block; margin-top: 1rem; margin-bottom: 0.5rem; color: #333;">Escolha o dia do atendimento:</label>
-          <input type="date" id="date">
-      
-          <!--  <input type="time" id="time"> -->
-          <label for="container-horarios"
-            style="font-family: 'Montserrat'; font-size: 0.9rem; display: block; margin-top: 1rem; margin-bottom: 0.5rem; color: #333;">Escolha
-            o horário disponível:</label>
-          <div id="container-horarios" class="grade-horarios"></div>
-
-          <button id="confirm" class="btn-agendar-modal">
-            Confirmar agendamento
-          </button>
-
-        </div>
-
+    <div id="step1" class="modal-step" style="display: none;">
+           
+      <div class="tabs">
+        <button type="button" onclick="changeTab('facial')">Facial</button>
+        <button type="button" onclick="changeTab('corporal')">Corporal</button>
+        <button type="button" onclick="changeTab('combos')">Combos</button>
       </div>
 
+      <div id="services" class="services-grid"></div>
+
+      <div class="summary">
+        <p id="selectedService">Nenhum selecionado</p>
+        <p id="total">Total: R$ 0</p>
+      </div>
+
+      <div class="modal-buttons">
+        <button type="button" onclick="irParaEtapa('step1', 'step0')" class="btn-voltar">Voltar</button>
+        <button type="button" id="nextStep" class="btn-agendar-modal">Avançar</button>
+      </div>
     </div>
+
+    <div id="step2" class="modal-step" style="display: none;">
+      <div id="form-agendamento">
+        <input type="text" placeholder="Nome" id="name" />
+        <input type="text" placeholder="WhatsApp" id="phone" />
+        
+        <label for="date" class="label-form">Escolha o dia do atendimento:</label>
+        <input type="date" id="date">
+    
+        <label for="container-horarios" class="label-form">Escolha o horário disponível:</label>
+        <div id="container-horarios" class="grade-horarios"></div>
+
+        <div class="modal-buttons">
+          <button type="button" onclick="irParaEtapa('step2', 'step1')" class="btn-voltar">Voltar</button>
+          <button type="button" id="confirm" class="btn-agendar-modal">Confirmar agendamento</button>
+        </div>
+      </div>
+    </div>
+
   </div>
+</div>
 
   <!-- MODAL AGENDAMENTO -->
   <dialog id="modalAgedamento">

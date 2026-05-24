@@ -7,10 +7,10 @@ const navLinks = document.getElementById('nav-links');
 const heroSection = document.querySelector('.hero'); // Certifique-se que sua section tem a classe .hero
 
 hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    hamburger.classList.toggle('open');
-    
-    // Removida a lógica de empurrar a hero para garantir a sobreposição limpa
+  navLinks.classList.toggle('active');
+  hamburger.classList.toggle('open');
+
+  // Removida a lógica de empurrar a hero para garantir a sobreposição limpa
 });
 
 // ==================================================================================================
@@ -29,27 +29,27 @@ let index = 0;
 
 // Cria os dots dinamicamente
 cards.forEach((_, i) => {
-    const dot = document.createElement('div');
-    dot.classList.add('dot');
-    if (i === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => moveToSlide(i));
-    dotsContainer.appendChild(dot);
+  const dot = document.createElement('div');
+  dot.classList.add('dot');
+  if (i === 0) dot.classList.add('active');
+  dot.addEventListener('click', () => moveToSlide(i));
+  dotsContainer.appendChild(dot);
 });
 
 const dots = document.querySelectorAll('.dot');
 
 function updateDots() {
-    dots.forEach(dot => dot.classList.remove('active'));
-    if(dots[index]) dots[index].classList.add('active');
+  dots.forEach(dot => dot.classList.remove('active'));
+  if (dots[index]) dots[index].classList.add('active');
 }
 
 function moveToSlide(i) {
-    index = i;
-    // Pega a largura exata de UM card para calcular o deslocamento
-    // Isso evita que o carrossel "vaze" por causa de gaps ou paddings
-    const cardWidth = cards[0].offsetWidth; 
-    track.style.transform = `translateX(-${index * cardWidth}px)`;
-    updateDots();
+  index = i;
+  // Pega a largura exata de UM card para calcular o deslocamento
+  // Isso evita que o carrossel "vaze" por causa de gaps ou paddings
+  const cardWidth = cards[0].offsetWidth;
+  track.style.transform = `translateX(-${index * cardWidth}px)`;
+  updateDots();
 }
 
 // Escuta redimensionamento da tela para recalcular o deslocamento
@@ -57,32 +57,26 @@ function moveToSlide(i) {
 window.addEventListener('resize', () => moveToSlide(index));
 
 nextBtn.addEventListener('click', () => {
-    index = (index + 1) % cards.length;
-    moveToSlide(index);
+  index = (index + 1) % cards.length;
+  moveToSlide(index);
 });
 
 prevBtn.addEventListener('click', () => {
-    index = (index - 1 + cards.length) % cards.length;
-    moveToSlide(index);
+  index = (index - 1 + cards.length) % cards.length;
+  moveToSlide(index);
 });
 
 // Auto-play com proteção para não bugar durante a interação
 let autoPlay = setInterval(() => {
-    nextBtn.click();
+  nextBtn.click();
 }, 5000);
 
 // Para o auto-play se o usuário clicar nos botões (melhora a UX)
 [nextBtn, prevBtn, dotsContainer].forEach(el => {
-    el.addEventListener('mouseenter', () => clearInterval(autoPlay));
+  el.addEventListener('mouseenter', () => clearInterval(autoPlay));
 });
 // ======================================================================================================
 
-
-// =========================
-// ELEMENTOS
-// =========================
-const modal = document.getElementById("modalPrecos");
-const closeModal = document.querySelector(".close-modal");
 
 // =========================
 // DADOS COLETADOS PARA GERAR O AGENDAMENTO 
@@ -93,64 +87,99 @@ let total = 0;
 //INFORMA OS TIPOS DE AREAS COM SEUS RESPECTIVOS VALORES E TEMPO DE SERVIÇO
 const data = {
   facial: [
-    { id: "buco", name: "Buço", price: 15, time: 15 },
-    { id: "sobrancelha", name: "Sobrancelha", price: 25, time: 30 },
-    { id: "barba-feminina", name: "Barba feminina", price: 20, time: 30 },
-    { id: "barba-masculina", name: "Barba masculina", price: 20, time: 30 }
+    { id: "buco", name: "Buço", sexo: ["f"], price: 15, time: 15 },
+    { id: "sobrancelha", name: "Sobrancelha", sexo: ["f", "m"], price: 25, time: 30 },
+    { id: "barba", name: "Barba", sexo: ["f", "m"], price: 20, time: 30 },
   ],
   corporal: [
-    { id: "axila", name: "Axila", price: 30, time: 15 },
-    { id: "perna", name: "Perna", price: 50, time: 45 },
-    { id: "bracos", name: "Braços", price: 40, time: 30 },
-    { id: "bumbum", name: "Bumbum", price: 35, time: 30 },
-    { id: "costas", name: "Costas", price: 45, time: 30 },
-    { id: "virilha", name: "Virilha", price: 60, time: 45 }
+    { id: "axila", name: "Axila", sexo: ["f", "m"], price: 30, time: 15 },
+    { id: "perna", name: "Perna", sexo: ["f", "m"], price: 50, time: 45 },
+    { id: "bracos", name: "Braços", sexo: ["f", "m"], price: 40, time: 30 },
+    { id: "bumbum", name: "Bumbum", sexo: ["f", "m"], price: 35, time: 30 },
+    { id: "costas", name: "Costas", sexo: ["f", "m"], price: 45, time: 30 },
+    { id: "virilha", name: "Virilha", sexo: ["f", "m"], price: 60, time: 45 }
   ],
   combos: [
-    { id: "facial-feminino", name: "Combo Facial Feminino", price: 35, time: 45 },
-    { id: "facial-masculino", name: "Combo Facial Masculino", price: 50, time: 60 },
-    { id: "corporal-feminino", name: "Combo Corporal Feminino", price: 180, time: 165 },
-    { id: "corporal-feminino-completo", name: "Combo Corporal Feminino Completo", price: 220, time: 180 },
-    { id: "corporal-masculino", name: "Combo Corporal Masculino", price: 200, time: 180 },
-    { id: "corporal-masculino-completo", name: "Combo Corporal Masculino Completo", price: 240, time: 180 }
+    { id: "facial-feminino", name: "Combo Facial Feminino", sexo: ["f"], price: 35, time: 45 },
+    { id: "facial-masculino", name: "Combo Facial Masculino", sexo: ["m"],price: 50, time: 60 },
+    { id: "corporal-feminino", name: "Combo Corporal Feminino", sexo: ["f"], price: 180, time: 165 },
+    { id: "corporal-feminino-completo", name: "Combo Corporal Feminino Completo (facial e corporal)", sexo: ["f"], price: 220, time: 180 },
+    { id: "corporal-masculino", name: "Combo Corporal Masculino", sexo: ["m"], price: 200, time: 180 },
+    { id: "corporal-masculino-completo", name: "Combo Corporal Masculino Completo (facial e corporal)", sexo: ["m"], price: 240, time: 180 }
   ]
 };
 
+// ==========================================
+// ESTADO GLOBAL DO AGENDAMENTO
+// ==========================================
+// Função para bloquear datas passadas no calendário
+function configurarDataMinima() {
+  const campoData = document.getElementById("date");
+  if (!campoData) return;
+
+  const hoje = new Date();
+
+  // Pegamos o ano, mês e dia no fuso horário local
+  const ano = hoje.getFullYear();
+  const mes = String(hoje.getMonth() + 1).padStart(2, '0'); // Mês começa em 0, por isso +1
+  const dia = String(hoje.getDate()).padStart(2, '0');
+
+  // O formato exigido pelo input type="date" é estritamente AAAA-MM-DD
+  const dataFormatada = `${ano}-${mes}-${dia}`;
+
+  // Aplica o limite mínimo no input
+  campoData.min = dataFormatada;
+}
+
+// Executa a função assim que a página terminar de carregar
+window.addEventListener("DOMContentLoaded", configurarDataMinima);
+
+let agendamento = {
+  sexo: null
+};
+
+// Vinculando o container correto do seu modal
+const modal = document.getElementById("modalAgendamento");
+const closeModal = document.getElementById("closeModal");
+
 // =========================
-// ABRIR MODAL
+// LÓGICA DE ABRIR MODAL
 // =========================
 document.querySelectorAll(".js-abrir-modal").forEach(btn => {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
 
-    modal.style.display = "flex";
+    // Mostra o modal em formato flexbox
+    if (modal) modal.style.display = "flex";
 
-    // RESET
+    // RESET DE DADOS ANTERIORES
     selectedServices = [];
     total = 0;
+    totalTime = 0;
+    agendamento.sexo = null;
 
     document.getElementById("selectedService").innerText = "Nenhum selecionado";
     document.getElementById("total").innerText = "Total: R$ 0";
 
-    document.getElementById("step1").style.display = "block";
+    // Desmarca opções antigas de sexo
+    document.querySelectorAll('input[name="sexo"]').forEach(radio => radio.checked = false);
+
+    // O SEGREDO CORRIGIDO: Só a Etapa 0 (Gênero) começa visível!
+    document.getElementById("step0").style.display = "block";
+    document.getElementById("step1").style.display = "none";
     document.getElementById("step2").style.display = "none";
 
-    document.getElementById("modalTitle").innerText = "Escolha seu serviço";
+    // Define o título inicial correto
+    document.getElementById("modalTitle").innerText = "Selecione o seu sexo para começar:";
 
-    const servico = btn.getAttribute("data-servico");
-
-    if (servico === "corporal") {
-      changeTab("corporal");
-    } else if (servico === "combos") {
-      changeTab("combos");
-    } else {
-      changeTab("facial");
-    }
+    // Guarda temporariamente qual categoria o botão pediu (corporal, combos ou facial)
+    const servicoAbra = btn.getAttribute("data-servico") || "facial";
+    modal.dataset.abaInicial = servicoAbra;
   });
 });
 
 // =========================
-// FECHAR MODAL
+// LOGICA DE FECHAR MODAL
 // =========================
 if (closeModal) {
   closeModal.onclick = () => {
@@ -164,140 +193,93 @@ window.onclick = (event) => {
   }
 };
 
-// =========================
-// FUNÇÕES
-// =========================
+// ==========================================
+// NAVEGAÇÃO ENTRE ETAPAS (Avançar e Voltar)
+// ==========================================
+function irParaEtapa(etapaAnterior, etapaAtual) {
+  document.getElementById(etapaAnterior).style.display = "none";
+  document.getElementById(etapaAtual).style.display = "block";
+
+  // Altera os títulos dinamicamente para cada etapa fazer sentido
+  const modalTitle = document.getElementById("modalTitle");
+  if (etapaAtual === "step0") modalTitle.innerText = "Por favor, selecione o seu sexo antes de começar";
+  if (etapaAtual === "step1") modalTitle.innerText = "Escolha as áreas que deseja depilar";
+  if (etapaAtual === "step2") modalTitle.innerText = "Finalizar agendamento";
+}
+
+// VALIDAÇÃO DA ETAPA 0: Salva o gênero e carrega os serviços certos
+function selecionarSexoEContinuar() {
+  const sexo = document.querySelector('input[name="sexo"]:checked')?.value;
+  if (!sexo) {
+    alert("Por favor, selecione seu gênero antes de avançar.");
+    return;
+  }
+
+  // Salva na memória global para o filtro usar
+  agendamento.sexo = sexo;
+
+  // Esconde o step0 e mostra o step1
+  irParaEtapa("step0", "step1");
+
+  // Carrega a aba padrão ou a aba que o botão clicado na LP solicitou
+  const abaPreDefinida = modal.dataset.abaInicial || "facial";
+  changeTab(abaPreDefinida);
+}
+
+// ==========================================
+// FILTRO INTELIGENTE E RENDERIZAÇÃO
+// ==========================================
+function obterServicosPorSexo(categoria, sexoSelecionado) {
+  return data[categoria].filter(item => {
+    if (Array.isArray(item.sexo)) {
+      return item.sexo.includes(sexoSelecionado);
+    }
+    return item.sexo === sexoSelecionado;
+  });
+}
+
 function changeTab(tab) {
   const container = document.getElementById("services");
   if (!container) return;
 
-  // ativar aba
+  // Ativar aba visualmente
   document.querySelectorAll(".tabs button").forEach(btn => {
     btn.classList.remove("active");
-    if (btn.textContent.toLowerCase() === tab) {
+    if (btn.textContent.toLowerCase() === tab || btn.getAttribute("onclick")?.includes(tab)) {
       btn.classList.add("active");
     }
   });
 
   container.innerHTML = "";
 
-  data[tab].forEach(item => {
+  // Busca os dados filtrados pela nossa função
+  const servicosFiltrados = obterServicosPorSexo(tab, agendamento.sexo);
+
+  servicosFiltrados.forEach(item => {
     const div = document.createElement("div");
     div.className = "service-item";
 
+    // Mantém selecionado se o usuário já tiver clicado antes e mudado de aba
+    const jaSelecionado = selectedServices.some(s => s.name === item.name);
+    if (jaSelecionado) div.classList.add("selected");
+
     div.innerHTML = `
       <span>${item.name} - R$ ${item.price}</span>
-      <button class="btn-select">+</button>
+      <button class="btn-select">${jaSelecionado ? '✓' : '+'}</button>
     `;
 
     const btn = div.querySelector(".btn-select");
-
     btn.addEventListener("click", () => {
       div.classList.toggle("selected");
       selectService(item.name, item.price);
+      btn.innerText = div.classList.contains("selected") ? "✓" : "+";
     });
 
     container.appendChild(div);
   });
 }
 
-// =========================
-// SELEÇÃO MÚLTIPLA
-// =========================
-function selectService(name, price) {
-  const index = selectedServices.findIndex(item => item.name === name);
 
-  if (index !== -1) {
-    selectedServices.splice(index, 1);
-  } else {
-    // Procura o serviço nas categorias do objeto "data" para achar o tempo dele
-    let serviceData = null;
-    ['facial', 'corporal', 'combos'].forEach(tab => {
-      const found = data[tab].find(item => item.name === name);
-      if (found) serviceData = found;
-    });
-
-    selectedServices.push({ 
-      name, 
-      price, 
-      time: serviceData ? serviceData.time : 15 // Padrão 15 min caso não ache
-    });
-  }
-
-  total = selectedServices.reduce((sum, item) => sum + item.price, 0);
-
-  // Calcula a soma dos minutos dos serviços selecionados
-  let rawTime = selectedServices.reduce((sum, item) => sum + item.time, 0);
-  // Limita o bloco da agenda em até 3 horas (180 minutos)
-  totalTime = rawTime > 180 ? 180 : rawTime;
-
-  const names = selectedServices.map(item => item.name).join(", ");
-
-  document.getElementById("selectedService").innerText =
-    selectedServices.length > 0
-      ? "Selecionado: " + names
-      : "Nenhum selecionado";
-
-  document.getElementById("total").innerText =
-    "Total: R$ " + total;
-}
-
-// =========================
-// ETAPA 2
-// =========================
-const nextStepBtn = document.getElementById("nextStep");
-
-if (nextStepBtn) {
-  nextStepBtn.onclick = () => {
-    if (selectedServices.length === 0) {
-      alert("Selecione pelo menos um serviço");
-      return;
-    }
-
-    document.getElementById("step1").style.display = "none";
-    document.getElementById("step2").style.display = "block";
-
-    document.getElementById("modalTitle").innerText =
-      "Finalizar agendamento";
-  };
-}
-
-// =========================
-// CONFIRMAR
-// =========================
-const confirmBtn = document.getElementById("confirm");
-
-if (confirmBtn) {
-  confirmBtn.onclick = () => {
-    const name = document.getElementById("name").value;
-    const phone = document.getElementById("phone").value;
-    const date = document.getElementById("date").value;
-    
-    // Busca o horário selecionado no container de botões dinâmicos
-    const containerHorarios = document.getElementById("container-horarios");
-    const time = containerHorarios ? containerHorarios.dataset.horarioSelecionado : "";
-
-    if (!name || !phone || !date || !time) {
-      alert("Preencha todos os campos (Não esqueça de selecionar um horário disponível)");
-      return;
-    }
-
-    const services = selectedServices.map(item => item.name).join(", ");
-
-    // Formata a data para o padrão brasileiro (DD/MM/YYYY) para a mensagem ficar mais bonita
-    const [ano, mes, dia] = date.split("-");
-    const dataFormatada = `${dia}/${mes}/${ano}`;
-
-    const message =
-      `Olá, Cida! Quero agendar depilação na(s) área(s): ${services} no dia ${date} às ${time}. Meu nome é ${name}`;
-
-    const url =
-      `https://wa.me/55${phone.replace(/\D/g, "")}?text=${encodeURIComponent(message)}`;
-
-    window.open(url, "_blank");
-  };
-}
-// =======================================================================================================
 
 // =========================
 // AGENDAMENTO
@@ -306,34 +288,55 @@ if (confirmBtn) {
 // buscar no localStorage os agendamentos já existentes para essa data.
 // =========================
 
-// PASSO 2: Esta função guarda o carregamento do documento para garantir que os elementos existem
 document.addEventListener("DOMContentLoaded", () => {
   const dateInput = document.getElementById("date");
 
- if (dateInput) {
+  if (dateInput) {
     dateInput.addEventListener("change", (e) => {
       const dataSelecionada = e.target.value; // Formato: "YYYY-MM-DD"
       if (!dataSelecionada) return;
 
-      // O "new Date" puro pode dar erro de fuso horário. 
-      // Adicionamos "T00:00:00" para garantir a data exata que a cliente clicou.
+      // ========================================================
+      // PASSO 1: SEGURANÇA - EVITAR DATAS NO PASSADO
+      // ========================================================
+      const hoje = new Date();
+      hoje.setHours(0, 0, 0, 0); // Zera as horas para comparar apenas os dias
+      
+      // Converte a data selecionada para um objeto Date para comparação pura de dias
+      const [ano, mes, dia] = dataSelecionada.split('-').map(Number);
+      const dataDigitada = new Date(ano, mes - 1, dia);
+
+      if (dataDigitada < hoje) {
+        alert("Você não pode selecionar uma data no passado!");
+        e.target.value = ""; // Limpa o campo de data
+        document.getElementById("container-horarios").innerHTML = ""; // Limpa os horários na tela
+        return; // Para a execução aqui e não carrega nada
+      }
+
+      // ========================================================
+      // PASSO 2: REGRA DE NEGÓCIO - EVITAR DOMINGOS
+      // ========================================================
+      // Adicionamos "T00:00:00" para garantir a data exata que a cliente clicou sem erro de fuso.
       const dataObjeto = new Date(`${dataSelecionada}T00:00:00`);
       const diaDaSemana = dataObjeto.getDay(); // 0 = Domingo, 1 = Segunda, ..., 6 = Sábado
 
-      // Regra 1: Bloquear Domingo completamente
       if (diaDaSemana === 0) {
         alert("A Cida não realiza atendimentos aos domingos. Por favor, escolha outra data.");
-        e.target.value = ""; // Limpa o campo
-        return;
+        e.target.value = ""; // Limpa o campo de data
+        document.getElementById("container-horarios").innerHTML = ""; // Limpa os horários na tela
+        return; // Para a execução aqui
       }
 
+      // ========================================================
+      // PASSO 3: CARREGAR AGENDAMENTOS E GERAR HORÁRIOS
+      // ========================================================
       // Busca os agendamentos do LocalStorage (se não existirem, cria um array vazio)
       const todosAgendamentos = JSON.parse(localStorage.getItem("agendamentos")) || [];
 
       // Filtra trazendo apenas os agendamentos que pertencem ao dia escolhido
       const agendamentosDoDia = todosAgendamentos.filter(agendamento => agendamento.date === dataSelecionada);
 
-      // Aqui chamamos o Passo 3 (O motor de cálculo), passando os dados que ele precisa
+      // Se passou em todas as barreiras acima, o motor calcula e exibe os horários livres!
       calcularHorariosDisponiveis(dataSelecionada, diaDaSemana, agendamentosDoDia);
     });
   }
@@ -416,53 +419,111 @@ function calcularHorariosDisponiveis(dataSelecionada, diaDaSemana, agendamentosD
 
 // PASSO 4: RENDERIZAR NA TELA O AGENDAMENTO
 function renderizarBotoesHorario(horariosResultado) {
-  // Busca o container onde os horários serão desenhados
-  // (Criaremos esse id "container-horarios" no HTML logo em seguida)
   const container = document.getElementById("container-horarios");
   if (!container) return;
 
-  // Limpa os botões gerados na consulta anterior para não acumular
   container.innerHTML = "";
 
-  // Percorre cada fração de tempo calculada pelo motor
   horariosResultado.forEach(item => {
-    // Cria o elemento do botão
     const botao = document.createElement("button");
     botao.type = "button";
     botao.classList.add("btn-fatia-horario");
-    
-    // Define o texto inicial do botão (ex: "08:15")
     botao.innerText = item.time;
 
-    // Se o motor marcou que este horário está bloqueado pelas regras
     if (item.blocked) {
       botao.disabled = true;
       botao.classList.add("horario-indisponivel");
-      
-      // Se o motivo for porque o serviço não cabe antes do almoço ou do fim do expediente,
-      // ou se já estiver ocupado por outra pessoa, adicionamos a observação curta
-      if (item.reason === "Tempo insuficiente antes do almoço") {
-        botao.innerText = `${item.time} (Tempo insuficiente)`;
-      } else if (item.reason === "Ocupado") {
-        botao.innerText = `${item.time} (Ocupado)`;
+
+      if (item.reason.includes("almoço")) {
+        botao.innerText = `${item.time} (Almoço)`;
+      } else if (item.reason.includes("expediente")) {
+        botao.innerText = `${item.time} (Fora)`;
       } else {
-        botao.innerText = `${item.time} (Reservado)`;
+        botao.innerText = `${item.time} (Ocupado)`;
       }
     } else {
-      // Se o horário estiver livre, adicionamos o evento de clique para a cliente selecionar
       botao.addEventListener("click", () => {
-        // Remove a seleção visual de qualquer outro botão de horário que foi clicado antes
         document.querySelectorAll(".btn-fatia-horario").forEach(b => b.classList.remove("selecionado"));
-        
-        // Destaca apenas o botão atual que foi escolhido
         botao.classList.add("selecionado");
-        
-        // Guarda o horário selecionado numa variável oculta ou atributo para o Passo 5 salvar
         container.dataset.horarioSelecionado = item.time;
       });
     }
 
-    // Adiciona o botão construído dentro do container do modal
     container.appendChild(botao);
   });
+}
+
+// ==========================================
+// FUNÇÃO DE SELEÇÃO DE SERVIÇOS
+// ==========================================
+function selectService(name, price) {
+  const index = selectedServices.findIndex(s => s.name === name);
+
+  if (index > -1) {
+    // Se já estava selecionado, remove da lista
+    selectedServices.splice(index, 1);
+  } else {
+    // Se não estava, adiciona
+    selectedServices.push({ name, price });
+  }
+
+  // Recalcula o valor total
+  total = selectedServices.reduce((sum, service) => sum + service.price, 0);
+
+  // Atualiza os textos do resumo no modal
+  const txtServico = document.getElementById("selectedService");
+  const txtTotal = document.getElementById("total");
+
+  if (selectedServices.length === 0) {
+    txtServico.innerText = "Nenhum selecionado";
+  } else {
+    txtServico.innerText = selectedServices.map(s => s.name).join(", ");
+  }
+
+  txtTotal.innerText = `Total: R$ ${total}`;
+}
+
+// Lógica de avançar da Etapa 1 para a Etapa 2
+document.getElementById("nextStep")?.addEventListener("click", () => {
+  if (selectedServices.length === 0) {
+    alert("Por favor, selecione ao menos um serviço antes de avançar.");
+    return;
+  }
+  irParaEtapa("step1", "step2");
+});
+
+// =========================
+// CONFIRMAR
+// =========================
+const confirmBtn = document.getElementById("confirm");
+
+if (confirmBtn) {
+  confirmBtn.onclick = () => {
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const date = document.getElementById("date").value;
+
+    // Busca o horário selecionado no container de botões dinâmicos
+    const containerHorarios = document.getElementById("container-horarios");
+    const time = containerHorarios ? containerHorarios.dataset.horarioSelecionado : "";
+
+    if (!name || !phone || !date || !time) {
+      alert("Preencha todos os campos (Não esqueça de selecionar um horário disponível)");
+      return;
+    }
+
+    const services = selectedServices.map(item => item.name).join(", ");
+
+    // Formata a data para o padrão brasileiro (DD/MM/YYYY) para a mensagem ficar mais bonita
+    const [ano, mes, dia] = date.split("-");
+    const dataFormatada = `${dia}/${mes}/${ano}`;
+
+    const message =
+      `Olá, Cida! Quero agendar depilação na(s) área(s): ${services} no dia ${date} às ${time}. Meu nome é ${name}`;
+
+    const url =
+      `https://wa.me/55${phone.replace(/\D/g, "")}?text=${encodeURIComponent(message)}`;
+
+    window.open(url, "_blank");
+  };
 }
