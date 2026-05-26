@@ -89,7 +89,7 @@ const data = {
   facial: [
     { id: "buco", name: "Buço", sexo: ["f"], price: 15, time: 15 },
     { id: "sobrancelha", name: "Sobrancelha", sexo: ["f", "m"], price: 25, time: 30 },
-    { id: "barba", name: "Barba", sexo: ["f", "m"], price: 20, time: 30 },
+    { id: "barba", name: "Barba", sexo: ["m"], price: 20, time: 30 },
   ],
   corporal: [
     { id: "axila", name: "Axila", sexo: ["f", "m"], price: 30, time: 15 },
@@ -100,12 +100,11 @@ const data = {
     { id: "virilha", name: "Virilha", sexo: ["f", "m"], price: 60, time: 45 }
   ],
   combos: [
-    { id: "facial-feminino", name: "Combo Facial Feminino", sexo: ["f"], price: 35, time: 45 },
-    { id: "facial-masculino", name: "Combo Facial Masculino", sexo: ["m"],price: 50, time: 60 },
-    { id: "corporal-feminino", name: "Combo Corporal Feminino", sexo: ["f"], price: 180, time: 165 },
-    { id: "corporal-feminino-completo", name: "Combo Corporal Feminino Completo (facial e corporal)", sexo: ["f"], price: 220, time: 180 },
-    { id: "corporal-masculino", name: "Combo Corporal Masculino", sexo: ["m"], price: 200, time: 180 },
-    { id: "corporal-masculino-completo", name: "Combo Corporal Masculino Completo (facial e corporal)", sexo: ["m"], price: 240, time: 180 }
+    { id: "facial-feminino", name: "Combo Facial Feminino <br/> <span class='combos'> (Buço e Sobrancelha) </span>", sexo: ["f"], price: 35, time: 45 },
+    { id: "facial-masculino", name: "Combo Facial Masculino <br/> <span class='combos'> (Sobrancelha e barba) </span>", sexo: ["m"],price: 50, time: 60 },
+    { id: "corporal-feminino", name: "Combo Corporal Feminino <br/> <span class='combos'> (Axila, perna, braços, virilha/bumbum) </span>", sexo: ["f"], price: 180, time: 165 },
+    { id: "corporal-masculino", name: "Combo Corporal Masculino <br/> <span class='combos'> (Costas, axila, perna, braços, virilha/bumbum) </span>", sexo: ["m"], price: 200, time: 180 },
+    { id: "corporal-completo", name: "Pacote Completo <br/> <span class='combos'>  (facial e corporal) </span>", sexo: ["f","m"], price: 240, time: 180 }
   ]
 };
 

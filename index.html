@@ -48,9 +48,15 @@
 
     <div class="hero-content" id="topo">
       <h1>Cida Fialho <br> Depilação com Cera</h1>
-      <h2>Atendimento acolhedor, técnicas modernas e resultados duradouros.</h2>
+      <h2>Depilação com cera profissional sem irritação excessiva e com resultado duradouro</h2>
 
-      <a href="#contato" class="btn js-abrir-modal">QUERO SENTIR ESTE CUIDADO</a>
+      <div class="cta-container">
+        <a href="#contato" class="btn-cta-principal js-abrir-modal">VER VALORES E AGENDAR</a>
+
+        <p class="cta-info">
+          ✓ Hora marcada &nbsp;&nbsp;•&nbsp;&nbsp; ✓ Confirmação rápida &nbsp;&nbsp;•&nbsp;&nbsp; ✓ Atendimento profissional
+        </p>
+      </div>
     </div>
   </header>
 
@@ -286,67 +292,67 @@
   </footer>
 
   <!-- MODAL PREÇOS DOS SERVIÇOS-->
- <div id="modalAgendamento" class="modal-container" style="display: none;">
-  <div class="modal-content">
-    <span class="close-modal" id="closeModal">&times;</span>
-    
-    <h2 id="modalTitle">Selecione o sexo para começar</h2>
+  <div id="modalAgendamento" class="modal-container" style="display: none;">
+    <div class="modal-content">
+      <span class="close-modal" id="closeModal">&times;</span>
 
-    <div id="step0" class="modal-step">
-      <div class="grupo-sexo">
-        <label class="opcao-genero" for="masc">
-          <input type="radio" id="masc" name="sexo" value="m">
-          <span>Masculino</span>
-        </label>
-        <label class="opcao-genero" for="fem">
-          <input type="radio" id="fem" name="sexo" value="f">
-          <span>Feminino</span>
-        </label>
-      </div>
-      <button type="button" onclick="selecionarSexoEContinuar()" class="btn-agendar-modal">Avançar</button>
-    </div>
+      <h2 id="modalTitle">Selecione o sexo para começar</h2>
 
-    <div id="step1" class="modal-step" style="display: none;">
-           
-      <div class="tabs">
-        <button type="button" onclick="changeTab('facial')">Facial</button>
-        <button type="button" onclick="changeTab('corporal')">Corporal</button>
-        <button type="button" onclick="changeTab('combos')">Combos</button>
+      <div id="step0" class="modal-step">
+        <div class="grupo-sexo">
+          <label class="opcao-genero" for="masc">
+            <input type="radio" id="masc" name="sexo" value="m">
+            <span>Masculino</span>
+          </label>
+          <label class="opcao-genero" for="fem">
+            <input type="radio" id="fem" name="sexo" value="f">
+            <span>Feminino</span>
+          </label>
+        </div>
+        <button type="button" onclick="selecionarSexoEContinuar()" class="btn-agendar-modal">Avançar</button>
       </div>
 
-      <div id="services" class="services-grid"></div>
+      <div id="step1" class="modal-step" style="display: none;">
 
-      <div class="summary">
-        <p id="selectedService">Nenhum selecionado</p>
-        <p id="total">Total: R$ 0</p>
-      </div>
+        <div class="tabs">
+          <button type="button" onclick="changeTab('facial')">Facial</button>
+          <button type="button" onclick="changeTab('corporal')">Corporal</button>
+          <button type="button" onclick="changeTab('combos')">Combos</button>
+        </div>
 
-      <div class="modal-buttons">
-        <button type="button" onclick="irParaEtapa('step1', 'step0')" class="btn-voltar">Voltar</button>
-        <button type="button" id="nextStep" class="btn-agendar-modal">Avançar</button>
-      </div>
-    </div>
+        <div id="services" class="services-grid"></div>
 
-    <div id="step2" class="modal-step" style="display: none;">
-      <div id="form-agendamento">
-        <input type="text" placeholder="Nome" id="name" />
-        <input type="text" placeholder="WhatsApp" id="phone" />
-        
-        <label for="date" class="label-form">Escolha o dia do atendimento:</label>
-        <input type="date" id="date">
-    
-        <label for="container-horarios" class="label-form">Escolha o horário disponível:</label>
-        <div id="container-horarios" class="grade-horarios"></div>
+        <div class="summary">
+          <p id="selectedService">Nenhum selecionado</p>
+          <p id="total">Total: R$ 0</p>
+        </div>
 
         <div class="modal-buttons">
-          <button type="button" onclick="irParaEtapa('step2', 'step1')" class="btn-voltar">Voltar</button>
-          <button type="button" id="confirm" class="btn-agendar-modal">Confirmar agendamento</button>
+          <button type="button" onclick="irParaEtapa('step1', 'step0')" class="btn-voltar">Voltar</button>
+          <button type="button" id="nextStep" class="btn-agendar-modal">Avançar</button>
         </div>
       </div>
-    </div>
 
+      <div id="step2" class="modal-step" style="display: none;">
+        <div id="form-agendamento">
+          <input type="text" placeholder="Nome" id="name" />
+          <input type="text" placeholder="WhatsApp" id="phone" />
+
+          <label for="date" class="label-form">Escolha o dia do atendimento:</label>
+          <input type="date" id="date">
+
+          <label for="container-horarios" class="label-form">Escolha o horário disponível:</label>
+          <div id="container-horarios" class="grade-horarios"></div>
+
+          <div class="modal-buttons">
+            <button type="button" onclick="irParaEtapa('step2', 'step1')" class="btn-voltar">Voltar</button>
+            <button type="button" id="confirm" class="btn-agendar-modal">Confirmar agendamento</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
-</div>
 
   <!-- MODAL AGENDAMENTO -->
   <dialog id="modalAgedamento">

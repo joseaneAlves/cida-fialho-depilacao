@@ -31,6 +31,15 @@ img {
     margin: auto;
 }
 
+.highlight {
+    color: #C8A27A;
+}
+
+.divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #C8A27A, transparent);
+}
+
 
 
 /* =============================== */
@@ -158,7 +167,7 @@ nav ul li a:hover {
     transition: 0.4s;
 }
 
-.btn-menuPrincipal {
+/* .btn-menuPrincipal {
     font-size: 14px;
     display: flex;
     padding: 16px 24px;
@@ -173,9 +182,24 @@ nav ul li a:hover {
     color: #F9F9F7;
     font-weight: 600;
     transition: transform 0.3s ease;
+} */
+
+.btn-menuPrincipal {
+    background: #58794dcc;
+    backdrop-filter: blur(8px);
+    border: 1px solid #58794dd0;
+    color: #f6f3ee;
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-family: "Montserrat", "Inter", serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-.btn-menuPrincipal:hover {
+/* .btn-menuPrincipal:hover {
     font-size: 15px;
     background: linear-gradient(137deg, #8FE773 0%, #66B44C 100%);
     box-shadow: 0 4px 4px 0 rgba(249, 249, 247, 0.54) inset, 0 4px 20px 0 rgba(31, 25, 25, 0.52);
@@ -183,6 +207,13 @@ nav ul li a:hover {
     color: #FFFFFF;
     font-weight: 600;
     transform: scale(1.1);
+} */
+
+.btn-menuPrincipal:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.08);
+    box-shadow: 0 8px 18px rgba(95, 127, 115, 0.25);
+    cursor: pointer;
 }
 
 /* Esconder o hambúrguer no Desktop */
@@ -437,7 +468,7 @@ nav ul li a:hover {
     animation: entradaDireita 1.2s ease-out forwards;
 }
 
-.btn {
+/* .btn {
     margin-top: 2rem;
     font-family: 'Montserrat', 'Inter';
     font-size: 14px;
@@ -454,15 +485,52 @@ nav ul li a:hover {
     cursor: pointer;
     box-shadow: 0 0px 10px rgba(0, 0, 0, 0.5);
     animation: pulsar 2s infinite ease-in-out;
+} */
+
+.btn-cta-principal {
+    text-decoration: none;
+    background: linear-gradient(135deg, #f6f3ee, #e9e4dc);
+    color: #58794D;
+    padding: 14px 28px;
+    font-family: "Montserrat", "Inter", serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    border: none;
+    border-radius: 32px;
+    letter-spacing: 0.5px;
+    animation: pulse 2.5s infinite;
 }
 
-.btn:hover {
+.btn-cta-principal:hover {
+    background: linear-gradient(135deg, #ffffff, #eaeaea);
+    transform: translateY(-1px);
+    filter: brightness(1.03);
+}
+
+.cta-container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin-top: 20px;
+}
+
+.cta-info {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 13px;
+    margin-top: 20px;
+    line-height: 1.4;
+    opacity: 0.85;
+    animation: entradaEsquerda 1.2s ease-out forwards;
+}
+
+/* .btn:hover {
     background: linear-gradient(90deg, #B67F15 0%, #C78404 100%);
     box-shadow: 0 0px 10px rgba(0, 0, 0, 0.5);
     transform: translateY(-3px);
     animation-play-state: paused;
     transform: scale(1.1);
-}
+} */
 
 /* --- Estilo Mobile --- */
 @media (max-width: 900px) {
@@ -775,7 +843,7 @@ nav ul li a:hover {
 }
 
 .icon-wraper-gold {
-    color: #BF953F;
+    color: #7A9B8E;
     font-size: 2rem;
     margin-bottom: 20px;
 }
@@ -943,6 +1011,10 @@ nav ul li a:hover {
         width: 100%;
     }
 
+    .benefit-card {
+        padding: 24px;
+    }
+
 }
 
 /* =============================== */
@@ -993,16 +1065,17 @@ nav ul li a:hover {
 }
 
 .servico-card {
-    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('img/webp/folhas.webp');
+    background: linear-gradient(rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.93)), url('img/webp/folhas.webp');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
+    
     margin-left: 20px;
     margin-right: 20px;
     padding: 3rem 2rem;
     border-radius: 1.5rem;
     transition: 0.3s;
-    border: 1px solid #ffecf3;
+    border: 1px solid rgba(200, 162, 122, 0.18);
 
     display: flex;
     flex-direction: column;
@@ -1015,12 +1088,13 @@ nav ul li a:hover {
 }
 
 .servico-card:hover {
-    transform: translateY(-10px);
-    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('img/jpg/folhas.jpg');
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.06);
+    background: linear-gradient(rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.93)), url('img/jpg/folhas.jpg');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    box-shadow: 0 15px 30px rgba(255, 116, 198, 0.1);
+    border: 1px solid rgba(200, 162, 122, 0.18);
 }
 
 .servico-card .icon {
@@ -1035,6 +1109,7 @@ nav ul li a:hover {
     background-size: contain;
     /* 'contain' é melhor para ícones não cortarem */
     background-repeat: no-repeat;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.08));
 }
 
 .servico-card h4 {
@@ -1065,22 +1140,26 @@ nav ul li a:hover {
     font-size: 16px;
     text-decoration: none;
     font-weight: 600;
-    border-radius: 20px;
+    border-radius: 999px;
     background-color: transparent;
-    background-image: linear-gradient(90deg, rgba(141, 49, 18, 0.8) 0%, rgba(187, 109, 108, 1) 100%);
-    padding: 10px 14px;
+    background-image: linear-gradient(135deg, #b67c63, #9c6853);
+    padding: 14px 28px;
     border: none;
     cursor: pointer;
-    animation: pulsar 2s infinite ease-in-out;
+    transition: all 0.3s ease;
 
 }
 
 .btn-precos:hover {
     background-color: transparent;
-    background-image: linear-gradient(90deg, #CF8282 0%, #BB6D6C 100%);
+    background: linear-gradient(135deg, #c68a70, #aa745e);
     border: none;
-    animation-play-state: paused;
-    transform: scale(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(156, 104, 83, 0.25);
+}
+
+.btn-precos:active {
+  transform: scale(0.98);
 }
 
 /* Estilo da lista de preços dentro do modal */
@@ -1095,9 +1174,13 @@ nav ul li a:hover {
 }
 
 #modalBody input {
+    background: #FAFAFA;
+    border: 1px solid #E5E5E5;
+    border-radius: 10px;
     width: 100%;
     margin: 8px 0;
-    padding: 8px;
+    padding: 12px;
+    transition: all 0.2s ease;
 }
 
 .modal {
@@ -1168,7 +1251,7 @@ nav ul li a:hover {
 
 #modalBody input:focus {
     outline: none;
-    border-color: #222;
+    border-color: #7A9B8E;
     background: #fff;
     box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
 }
@@ -1206,8 +1289,9 @@ nav ul li a:hover {
 
 .tabs {
     display: flex;
-    background: #f5f5f5;
-    border: 1px solid #e5e5e5;
+    background: #F1F1F1;
+    ;
+    /* border: 1px solid #e5e5e5; */
     border-radius: 10px;
     padding: 4px;
     gap: 4px;
@@ -1227,7 +1311,8 @@ nav ul li a:hover {
 }
 
 .tabs button.active {
-    background: #ffffff;
+    background: linear-gradient(135deg, #FFFFFF, #F3F3F3);
+    ;
     color: #222;
     font-weight: 600;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
@@ -1235,6 +1320,10 @@ nav ul li a:hover {
 
 .tabs button:hover {
     color: #000;
+}
+
+.combos {
+    font-size: 12px;
 }
 
 #selectedService,
@@ -1280,18 +1369,20 @@ nav ul li a:hover {
 }
 
 .btn-voltar {
-    background-color: transparent;
-    color: #666;
-    padding: 12px 18px;
+     background: linear-gradient(135deg, #f6f3ee, #e9e4dc);
+    color: #58794D;
+    padding: 12px 24px;
     font-size: 0.9rem;
     font-weight: 600;
     border: 1px solid #CCC;
-    border-radius: 6px;
+    border-radius: 10px;
     cursor: pointer;
 }
 
 .btn-voltar:hover {
-    background-color: #EEE;
+     background: linear-gradient(135deg, #ffffff, #eaeaea);
+    transform: translateY(-1px);
+    filter: brightness(1.03)
 }
 
 /* Centraliza a div do step0 no modal */
@@ -1318,7 +1409,8 @@ nav ul li a:hover {
 }
 
 .service-item.selected {
-    background: #f5f5f5;
+    background: linear-gradient(135deg, #EEF5F2, #E4EEEA);
+    border: 1px solid #CDDED6;
     border-radius: 8px;
     padding: 8px;
 }
@@ -1335,9 +1427,15 @@ nav ul li a:hover {
 }
 
 .btn-select:hover {
-    background: #222;
+    background: #58794dcc;
     color: white;
-    border-color: #222;
+    border-color: #7a9b8e;
+}
+
+.btn-select.selected {
+    background: linear-gradient(135deg, #7A9B8E, #5F7F73);
+    color: #fff;
+    border: none;
 }
 
 .summary {
@@ -1347,19 +1445,29 @@ nav ul li a:hover {
 }
 
 .btn-agendar-modal {
-    background-color: #333;
-    color: #FFF;
+    background: #58794dcc;
+    backdrop-filter: blur(8px);
+    border: 1px solid #58794dd0;
+    color: #f6f3ee;
     padding: 12px 24px;
     font-size: 0.95rem;
-    font-weight: 700;
+    font-weight: 600;
     border: none;
-    border-radius: 6px;
+    border-radius: 10px;
     cursor: pointer;
     flex: 1;
+    transition: all 0.3s ease;
 }
 
 .btn-agendar-modal:hover {
-    background-color: #111;
+     filter: brightness(1.08);
+    box-shadow: 0 8px 18px rgba(95, 127, 115, 0.25);
+    transform: translateY(-1px);
+  
+}
+
+.btn-agendar-modal:active {
+    transform: scale(0.97);
 }
 
 
@@ -1413,18 +1521,26 @@ nav ul li a:hover {
 
 /* Efeito Hover nos botões disponíveis */
 .btn-fatia-horario:not(:disabled):hover {
-    background-color: #f4ebe1;
-    border-color: #BF953F;
-    color: #BF953F;
+    background-color: #eef5f2;
+    border-color: #8EA497;
+    color: #5F7F73;
+
     transform: translateY(-1px);
+
+    box-shadow: 0 4px 10px rgba(111, 141, 129, 0.12);
 }
 
 /* O GRANDE SEGREDO: Estilo do botão quando for clicado pelo usuário */
 .btn-fatia-horario.selecionado {
-    background-color: #BF953F !important;
+    background: linear-gradient(135deg,#8EA497, #6F8D81) !important;
+
     color: #ffffff !important;
-    border-color: #BF953F !important;
-    box-shadow: 0 4px 10px rgba(191, 149, 63, 0.3);
+
+    border-color: #6F8D81 !important;
+
+    box-shadow: 0 6px 14px rgba(111, 141, 129, 0.22);
+
+    transform: translateY(-1px);
 }
 
 /* Estilo para os botões bloqueados (Almoço, Ocupado, Fechado) */
@@ -2729,7 +2845,7 @@ dialog select {
     }
 }
 
-@keyframes pulsar {
+/* @keyframes pulsar {
     0% {
         transform: scale(1);
         box-shadow: 0 4px 20px 0 rgba(31, 25, 25, 0.52);
@@ -2737,12 +2853,12 @@ dialog select {
 
     50% {
         transform: scale(1.05);
-        /* Cresce 5% */
+        /* Cresce 5% 
         box-shadow: 0 8px 25px 0 rgba(186, 201, 181, 0.6);
-        /* Aumenta o brilho verde */
-    }
+        /* Aumenta o brilho verde
+    } */
 
-    100% {
+/* 100% { 
         transform: scale(1);
         box-shadow: 0 4px 20px 0 rgba(31, 25, 25, 0.52);
     }
@@ -2751,5 +2867,21 @@ dialog select {
     100% {
         transform: scale(1);
         box-shadow: 0 4px 20px 0 rgba(31, 25, 25, 0.52);
+    }
+} */
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(200, 162, 122, 0.4);
+    }
+
+    70% {
+        transform: scale(1.03);
+        box-shadow: 0 0 0 12px rgba(200, 162, 122, 0);
+    }
+
+    100% {
+        transform: scale(1);
     }
 }
