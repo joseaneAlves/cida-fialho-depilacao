@@ -4,26 +4,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Depilação - Cida Fialho</title>
+  <title>Depilação com Cera em Ipatinga/MG | Cida Fialho – Depiladora Profissional</title>
+  <meta name="description" content="Depilação com cera profissional em Ipatinga/MG. Cida Fialho oferece atendimento personalizado, ceras hipoalergênicas e resultado duradouro sem irritação. Agende seu horário!">
+
+  <!-- JSON-LD: LocalBusiness + Serviços + Avaliações
+       Preencha os campos marcados com TODO antes de publicar. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BeautySalon",
+    "name": "Cida Fialho Depilação",
+    "image": "https://joseanealves.github.io/cida-fialho-depilacao/img/logo-cida-atualizado.webp",
+    "description": "Depilação com cera profissional em Ipatinga/MG. Atendimento humanizado, ceras hipoalergênicas e resultado duradouro.",
+    "url": "https://joseanealves.github.io/cida-fialho-depilacao/",
+    "telephone": "+55-31-98876-2922",
+    "priceRange": "R$15–R$240",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "TODO: Rua real, número",
+      "addressLocality": "Ipatinga",
+      "addressRegion": "MG",
+      "postalCode": "TODO: CEP",
+      "addressCountry": "BR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "TODO: latitude",
+      "longitude": "TODO: longitude"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "12:00" }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Serviços de Depilação",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Buço" }, "price": "15.00", "priceCurrency": "BRL" },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Design de Sobrancelhas" }, "price": "25.00", "priceCurrency": "BRL" },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Depilação de Pernas" }, "price": "50.00", "priceCurrency": "BRL" },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Combo Corporal Feminino" }, "price": "180.00", "priceCurrency": "BRL" },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pacote Completo" }, "price": "240.00", "priceCurrency": "BRL" }
+      ]
+    },
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "3", "bestRating": "5" },
+    "review": [
+      { "@type": "Review", "author": { "@type": "Person", "name": "Camila" }, "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Minha pele ficou muito macia e sem irritação. A Cida é maravilhosa!" },
+      { "@type": "Review", "author": { "@type": "Person", "name": "Fernanda" }, "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Profissional super cuidadosa. Melhor depilação que já fiz!" },
+      { "@type": "Review", "author": { "@type": "Person", "name": "Juliana M." }, "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Atendimento impecável e ambiente confortável. Recomendo demais." }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Playfair+Display:wght@700&family=Montserrat:wght@400;600;700&family=Inter:wght@400;600&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Playfair+Display:wght@700&family=Montserrat:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="lp.js" defer></script>
   <link rel="icon" type="image/webp" href="img/webp/flavicon-cida.webp">
+  <link rel="preload" as="image" href="img/webp/cida-sorrindo-estudio.webp">
 </head>
 
 <body>
-  <!-- HERO SECTION -->
+
+  <!-- NAVEGAÇÃO -->
   <nav class="navbar">
     <div class="nav-logo">
-      <img src="img/logo-cida-atualizado.webp" alt="Cida Fialho">
+      <img src="img/logo-cida-atualizado.webp" width="120" height="48" alt="Cida Fialho Depilação">
     </div>
-
     <div class="nav-container">
       <ul class="nav-links" id="nav-links">
         <li><a href="#topo">Home</a></li>
@@ -32,30 +81,23 @@
         <li><a href="#quemSouEu">Quem Sou Eu</a></li>
         <li><a href="#depoimentos">Depoimentos</a></li>
       </ul>
-
-
-      <div class="hamburger" id="hamburger">
+      <div class="hamburger" id="hamburger" role="button" aria-label="Abrir menu" aria-expanded="false" tabindex="0">
         <div class="bar1"></div>
         <div class="bar2"></div>
         <div class="bar3"></div>
       </div>
     </div>
-
     <button class="btn-menuPrincipal js-abrir-modal">AGENDAR UM HORÁRIO</button>
   </nav>
 
+  <!-- HERO -->
   <header class="hero">
-
     <div class="hero-content" id="topo">
-      <h1>Cida Fialho <br> Depilação com Cera</h1>
+      <h1>Cida Fialho<br>Depilação com Cera em Ipatinga/MG</h1>
       <h2>Depilação com cera profissional sem irritação excessiva e com resultado duradouro</h2>
-
       <div class="cta-container">
-        <a href="#contato" class="btn-cta-principal js-abrir-modal">VER VALORES E AGENDAR</a>
-
-        <p class="cta-info">
-          ✓ Hora marcada &nbsp;&nbsp;•&nbsp;&nbsp; ✓ Confirmação rápida &nbsp;&nbsp;•&nbsp;&nbsp; ✓ Atendimento profissional
-        </p>
+        <button class="btn-cta-principal js-abrir-modal">VER HORÁRIOS DISPONÍVEIS</button>
+        <p class="cta-info">✓ Hora marcada &nbsp;&nbsp;•&nbsp;&nbsp; ✓ Confirmação rápida &nbsp;&nbsp;•&nbsp;&nbsp; ✓ Atendimento profissional</p>
       </div>
     </div>
   </header>
@@ -66,33 +108,14 @@
     <div class="container">
       <h2>Cansada de sofrer para se sentir bem?</h2>
       <h3>Você não precisa escolher entre uma pele lisa e uma pele saudável.</h3>
-
-      <p>Se você sofre com alergias e foliculite, saiba que não precisa escolher entre uma pele lisa e uma pele
-        saudável. Meu método foi criado para entregar a eficiência que você busca com o carinho que sua pele merece.
-        <br />Veja os benefícios que preparei para você:
-      </p>
-
+      <p>Se você sofre com alergias e foliculite, saiba que não precisa escolher entre uma pele lisa e uma pele saudável. Meu método foi criado para entregar a eficiência que você busca com o carinho que sua pele merece.<br />Veja os benefícios que preparei para você:</p>
       <div class="benefits-grid">
-        <div class="benefit-card reveal">
-          <div style="color: #BF953F; font-size: 2rem; margin-bottom: 20px;"><i class="fa fa-magic"></i></div>
-          Recuperação Acelerada
-        </div>
-
-        <div class="benefit-card reveal">
-          <div style="color: #BF953F; font-size: 2rem; margin-bottom: 20px;"><i class="fa fa-shield"></i></div>
-          Alívio da Foliculite
-        </div>
-
-        <div class="benefit-card reveal">
-          <div style="color: #BF953F; font-size: 2rem; margin-bottom: 20px;"><i class="fa fa-leaf"></i></div>
-          Zero Agressão de Lâmina
-        </div>
-
-        <div class="benefit-card reveal">
-          <div style="color: #BF953F; font-size: 2rem; margin-bottom: 20px;"><i class="fa fa-diamond"></i></div>
-          Toque de Suavidade
-        </div>
+        <div class="benefit-card reveal"><div style="color:#BF953F;font-size:2rem;margin-bottom:20px"><i class="fa fa-magic" aria-hidden="true"></i></div>Recuperação Acelerada</div>
+        <div class="benefit-card reveal"><div style="color:#BF953F;font-size:2rem;margin-bottom:20px"><i class="fa fa-shield" aria-hidden="true"></i></div>Alívio da Foliculite</div>
+        <div class="benefit-card reveal"><div style="color:#BF953F;font-size:2rem;margin-bottom:20px"><i class="fa fa-leaf" aria-hidden="true"></i></div>Zero Agressão de Lâmina</div>
+        <div class="benefit-card reveal"><div style="color:#BF953F;font-size:2rem;margin-bottom:20px"><i class="fa fa-diamond" aria-hidden="true"></i></div>Toque de Suavidade</div>
       </div>
+    </div>
   </section>
   <div class="divisor-dourado"></div>
 
@@ -103,136 +126,80 @@
     <div class="containerServicos">
       <div class="servicos-grid">
         <div class="servico-card reveal" data-servico="facial">
-          <div class="icon"><img src="img/svg/Sobrancelha.svg" /></div>
+          <div class="icon"><img src="img/svg/Sobrancelha.svg" width="120" height="120" alt="Depilação facial" /></div>
           <h4 class="tipoDepilacao">Depilação Facial</h4>
-          <p>Barba, buço e <br />Design de sobrancelhas</p>
-          <!-- <a href="#" class="btn-precos">Consultar Valores</a>-->
+          <p>Barba, buço e<br />Design de sobrancelhas</p>
         </div>
-
         <div class="servico-card reveal" data-servico="corporal">
-          <div class="icon"><img src="img/svg/Pernas.svg" /></div>
-          <h4 id="tipoDepilacao">Depilação Corporal</h4>
-          <p>Axila, Peito, <br />Braço, Pernas e Virilha</p>
-          <!-- <a href="#" class="btn-precos">Consultar Valores</a>-->
+          <div class="icon"><img src="img/svg/Pernas.svg" width="120" height="120" alt="Depilação corporal" /></div>
+          <h4 class="tipoDepilacao">Depilação Corporal</h4>
+          <p>Axila, Peito,<br />Braço, Pernas e Virilha</p>
         </div>
-
-        <div class="servico-card reveal" data-servico="combosPromocionais">
-          <div class="icon"><img src="img/svg/Coracao.svg" /></div>
-          <h4 id="tipoDepilacao">Combos Promocionais</h4>
-          <p>Pacotes <br />personalizados</p>
-          <!-- <a href="#" class="btn-precos">Consultar Valores</a>-->
+        <div class="servico-card reveal" data-servico="combos">
+          <div class="icon"><img src="img/svg/Coracao.svg" width="120" height="120" alt="Combos promocionais" /></div>
+          <h4 class="tipoDepilacao">Combos Promocionais</h4>
+          <p>Pacotes<br />personalizados</p>
         </div>
-
       </div>
+
+      <!-- Botões da seção de serviços -->
       <div class="botaoAgendamento">
-        <button class="btn-precos js-abrir-modal" data-servico="tipoDepilacao">
-          QUERO RESERVAR UM HORÁRIO
-        </button>
+        <button class="btn-precos js-abrir-precos">VER TABELA DE PREÇOS</button>
+        <button class="btn-precos js-abrir-modal">QUERO RESERVAR UM HORÁRIO</button>
       </div>
+    </div>
   </section>
 
   <!-- QUEM SOU EU -->
   <section class="quemSouEu" id="quemSouEu">
     <div class="custom-shape-divider-top-1777244327">
       <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <rect x="1200" height="3.6"></rect>
-        <rect height="3.6"></rect>
-        <path d="M0,0V3.6H580.08c11,0,19.92,5.09,19.92,13.2,0-8.14,8.88-13.2,19.92-13.2H1200V0Z" class="shape-fill">
-        </path>
+        <rect x="1200" height="3.6"></rect><rect height="3.6"></rect>
+        <path d="M0,0V3.6H580.08c11,0,19.92,5.09,19.92,13.2,0-8.14,8.88-13.2,19.92-13.2H1200V0Z" class="shape-fill"></path>
       </svg>
     </div>
-
     <div class="container">
       <h2 class="title-quemSouEu">A Essência por trás de Cada Atendimento</h2>
-
-      <p class="text-quemSouEu">Meu nome é Cida Fialho e atuo na depilação profissional há mais de 15 anos. Dedico-me a
-        aprimorar técnicas constantemente para oferecer um serviço de excelência. Cada atendimento é feito com a
-        delicadeza e a atenção que a sua pele merece.
-        <br />
-        <br />
-        Acredito que a depilação é um ritual de cuidado e empoderamento da autoestima. Trato cada pele com o máximo
-        respeito, buscando resultados impecáveis e relaxantes. Minha missão é que você saia do estúdio sentindo-se mais
-        confiante e renovada.
-        <br />
-        <br />
-        Utilizo apenas ceras de alta qualidade, hipo-alergênicas e com ativos naturais calmantes. Sigo rigorosos padrões
-        de higiene, com materiais descartáveis e ferramentas esterilizadas. É o meu compromisso com a sua total
-        segurança, saúde e conforto em cada sessão.
-      </p>
-
-      <img src="img/webp/moldura-cida.webp" alt="Depiladora Cida Fialho" class="img-cida">
-
+      <p class="text-quemSouEu">Meu nome é Cida Fialho e atuo na depilação profissional há mais de 15 anos. Dedico-me a aprimorar técnicas constantemente para oferecer um serviço de excelência. Cada atendimento é feito com a delicadeza e a atenção que a sua pele merece.<br /><br />Acredito que a depilação é um ritual de cuidado e empoderamento da autoestima. Trato cada pele com o máximo respeito, buscando resultados impecáveis e relaxantes. Minha missão é que você saia do estúdio sentindo-se mais confiante e renovada.<br /><br />Utilizo apenas ceras de alta qualidade, hipo-alergênicas e com ativos naturais calmantes. Sigo rigorosos padrões de higiene, com materiais descartáveis e ferramentas esterilizadas. É o meu compromisso com a sua total segurança, saúde e conforto em cada sessão.</p>
+      <img src="img/webp/moldura-cida.webp" alt="Depiladora Cida Fialho com 15 anos de experiência" class="img-cida" width="400" height="500">
     </div>
-
     <div class="btn-quemSouEu">
-      <button class="btn js-abrir-modal" data-servico="tipoDepilacao">QUERO RECEBER ESTE CUIDADO!</button>
-    </div>
+      <button class="btn js-abrir-modal">QUERO RECEBER ESTE CUIDADO!</button>
     </div>
   </section>
 
   <!-- DEPOIMENTOS -->
   <section class="testimonials" id="depoimentos">
     <div class="container testimonials-grid">
-
       <div class="testimonials-header">
         <span class="subtitle">Depoimentos</span>
         <h2>O que as clientes dizem sobre a Cida</h2>
-        <p class="summary-text">
-          O atendimento da Cida é marcado pela rara combinação entre <strong>rigor técnico e calor humano</strong>.
-          Com higiene absoluta e materiais individuais, ela oferece um cuidado humanizado que acolhe cada paciente
-          com a mesma dedicação, independente de sexo ou idade.
-        </p>
+        <p class="summary-text">O atendimento da Cida é marcado pela rara combinação entre <strong>rigor técnico e calor humano</strong>. Com higiene absoluta e materiais individuais, ela oferece um cuidado humanizado que acolhe cada pessoa com a mesma dedicação, independente de sexo ou idade.</p>
       </div>
-
       <div class="carousel-container">
-        <button class="nav-btn prev" id="prevBtn"><span>&#10094;</span></button>
-        <button class="nav-btn next" id="nextBtn"><span>&#10095;</span></button>
-
+        <button class="nav-btn prev" id="prevBtn" aria-label="Depoimento anterior"><span>&#10094;</span></button>
+        <button class="nav-btn next" id="nextBtn" aria-label="Próximo depoimento"><span>&#10095;</span></button>
         <div class="testimonial-slider">
           <div class="slider-track" id="sliderTrack">
-
             <div class="testimonial-card">
-              <div class="card-top">
-                <img src="img/webp/logo-google.webp" alt="Google" class="google-logo">
-                <div class="stars">★★★★★</div>
-              </div>
-              <p class="testimonial-content">“Minha pele ficou muito macia e sem irritação. A Cida é maravilhosa!”</p>
-              <div class="card-bottom">
-                <img src="img/webp/camila-depoimento.webp" alt="Camila" class="client-thumb">
-                <span class="author">Camila</span>
-              </div>
+              <div class="card-top"><img src="img/webp/logo-google.webp" alt="Avaliação Google" class="google-logo" width="60" height="20"><div class="stars" aria-label="5 estrelas">★★★★★</div></div>
+              <p class="testimonial-content">"Minha pele ficou muito macia e sem irritação. A Cida é maravilhosa!"</p>
+              <div class="card-bottom"><img src="img/webp/camila-depoimento.webp" alt="Foto de Camila" class="client-thumb" width="48" height="48"><span class="author">Camila</span></div>
             </div>
-
             <div class="testimonial-card">
-              <div class="card-top">
-                <img src="img/webp/logo-google.webp" alt="Google" class="google-logo">
-                <div class="stars">★★★★★</div>
-              </div>
-              <p class="testimonial-content">“Profissional super cuidadosa. Melhor depilação que já fiz!”</p>
-              <div class="card-bottom">
-                <img src="img/webp/fernanda-depoimento.webp" alt="Fernanda" class="client-thumb">
-                <span class="author">Fernanda</span>
-              </div>
+              <div class="card-top"><img src="img/webp/logo-google.webp" alt="Avaliação Google" class="google-logo" width="60" height="20"><div class="stars" aria-label="5 estrelas">★★★★★</div></div>
+              <p class="testimonial-content">"Profissional super cuidadosa. Melhor depilação que já fiz!"</p>
+              <div class="card-bottom"><img src="img/webp/fernanda-depoimento.webp" alt="Foto de Fernanda" class="client-thumb" width="48" height="48"><span class="author">Fernanda</span></div>
             </div>
-
             <div class="testimonial-card">
-              <div class="card-top">
-                <img src="img/webp/logo-google.webp" alt="Google" class="google-logo">
-                <div class="stars">★★★★★</div>
-              </div>
-              <p class="testimonial-content">“Atendimento impecável e ambiente confortável. Recomendo demais.”</p>
-              <div class="card-bottom">
-                <img src="img/webp/juliana-depoimento.webp" alt="Juliana" class="client-thumb">
-                <span class="author">Juliana M.</span>
-              </div>
+              <div class="card-top"><img src="img/webp/logo-google.webp" alt="Avaliação Google" class="google-logo" width="60" height="20"><div class="stars" aria-label="5 estrelas">★★★★★</div></div>
+              <p class="testimonial-content">"Atendimento impecável e ambiente confortável. Recomendo demais."</p>
+              <div class="card-bottom"><img src="img/webp/juliana-depoimento.webp" alt="Foto de Juliana M." class="client-thumb" width="48" height="48"><span class="author">Juliana M.</span></div>
             </div>
-
           </div>
         </div>
-
-        <div class="dots-container" id="dotsContainer"></div>
+        <div class="dots-container" id="dotsContainer" role="tablist" aria-label="Navegação de depoimentos"></div>
       </div>
-
     </div>
   </section>
 
@@ -242,11 +209,8 @@
     <div class="container content-wrapper">
       <h2 class="title-agendamentoFinal">PRONTA PARA SEU MOMENTO DE AUTOCUIDADO?</h2>
       <h3>Reserve um tempo para você e sinta a pureza de um toque profissional.</h3>
-
       <div class="btn-quemSouEu">
-        <button class="btn-cta-principal js-abrir-modal" data-servico="tipoDepilacao">
-          AGENDE UM HORÁRIO AGORA!
-        </button>
+        <button class="btn-cta-principal js-abrir-modal">AGENDE UM HORÁRIO AGORA!</button>
       </div>
     </div>
   </section>
@@ -255,9 +219,9 @@
   <footer class="site-footer">
     <div class="footer-content">
       <div class="footer-column-logo">
-        <img src="img/webp/logo-cida-branco-transparente.webp" />Cuidado, técnica e bem-estar<br /> em cada detalhe.
+        <img src="img/webp/logo-cida-branco-transparente.webp" alt="Logo Cida Fialho" width="200" height="80" />
+        Cuidado, técnica e bem-estar<br /> em cada detalhe.
       </div>
-
       <div class="footer-column-menu">
         <h6>Navegação Rápida</h6>
         <p><a href="#topo">Home</a></p>
@@ -267,86 +231,139 @@
         <p><a href="#depoimentos">Depoimentos</a></p>
         <p><a href="#agendamento">Agendamento</a></p>
       </div>
-
       <div class="footer-column-contact">
         <h6>Fale comigo</h6>
-        <p>Atendimento de Segunda a sexta, das 8h às 18h e sábado, das 8h às 12h, SOMENTE COM AGENDAMENTO</p>
-        <p><a href="https://wa.me" class="whatsapp-float" target="_blank">
-            <i class="fa fa-whatsapp whatsapp-icon"></i>(31) 98876-2922
-          </a>
-        </p>
-
-        <p><a href="https://instagram.com" target="_blank" class="instagram-icon">
-            <i class="fa fa-instagram"></i> @cidadepilacao
-          </a>
-        </p>
-        <p><a href="#" target="_blank"><i class="fa fa-map-marker"></i>Rua da Bíblia, 123, bairro <br /> Cidade /
-            Estado</a>
-        </p>
+        <p>Atendimento de segunda a sexta, das 8h às 18h e sábado, das 8h às 12h — somente com agendamento.</p>
+        <!-- TODO: substituir pelo número real -->
+        <p><a href="https://wa.me/5531988762922" class="whatsapp-float" target="_blank" rel="noopener">
+          <i class="fa fa-whatsapp whatsapp-icon" aria-hidden="true"></i>(31) 98876-2922
+        </a></p>
+        <!-- TODO: substituir pelo @ real -->
+        <p><a href="https://instagram.com/cidadepilacao" target="_blank" rel="noopener" class="instagram-icon">
+          <i class="fa fa-instagram" aria-hidden="true"></i> @cidadepilacao
+        </a></p>
+        <!-- TODO: substituir pelo endereço real -->
+        <p><i class="fa fa-map-marker" aria-hidden="true"></i> Ipatinga/MG</p>
       </div>
     </div>
-
-    <div class="Copyright">
-      © 2026 Cida Fialho – Todos os direitos reservados | Desenvolvido com carinho por Joseane
-    </div>
+    <div class="Copyright">© 2026 Cida Fialho – Todos os direitos reservados | Desenvolvido com carinho por Joseane</div>
   </footer>
 
-  <!-- MODAL PREÇOS DOS SERVIÇOS-->
-  <div id="modalAgendamento" class="modal-container" style="display: none;">
+  <!-- ============================================================
+       BOTÃO FLUTUANTE DO WHATSAPP
+       Visível em todos os tamanhos de tela, inclusive tablets.
+       TODO: substituir pelo número real.
+  ============================================================ -->
+  <a href="https://wa.me/5531988762922?text=Ol%C3%A1%2C+Cida!+Gostaria+de+agendar+um+hor%C3%A1rio."
+     class="whatsapp-fab"
+     target="_blank"
+     rel="noopener"
+     aria-label="Conversar no WhatsApp">
+    <i class="fa fa-whatsapp" aria-hidden="true"></i>
+    <!-- Texto visível apenas em telas médias/grandes -->
+    <span class="whatsapp-fab-label">Agendar pelo WhatsApp</span>
+  </a>
+
+  <!-- ============================================================
+       MODAL DE PREÇOS
+       Aberto por .js-abrir-precos — separado do fluxo de agendamento.
+  ============================================================ -->
+  <div id="modalPrecos" class="modal-container" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="tituloModalPrecos">
+    <div class="modal-content modal-precos-content">
+      <button class="close-modal" id="closeModalPrecos" aria-label="Fechar">&times;</button>
+      <h2 id="tituloModalPrecos" class="modal-precos-titulo">Tabela de Preços</h2>
+      <p class="modal-precos-subtitulo">Transparência em cada detalhe — sem surpresas na hora de pagar.</p>
+
+      <!-- Seleção de sexo para filtrar a tabela -->
+      <div class="modal-precos-sexo">
+        <button class="btn-sexo-preco active" data-sexo="f" aria-pressed="true">
+          <i class="fa fa-venus" aria-hidden="true"></i> Feminino
+        </button>
+        <button class="btn-sexo-preco" data-sexo="m" aria-pressed="false">
+          <i class="fa fa-mars" aria-hidden="true"></i> Masculino
+        </button>
+      </div>
+
+      <table class="tabela-precos" aria-live="polite">
+        <thead>
+          <tr>
+            <th>Serviço</th>
+            <th>Valor</th>
+            <th>Duração</th>
+          </tr>
+        </thead>
+        <tbody id="corpoTabelaPrecos">
+          <!-- Preenchido dinamicamente pelo JavaScript -->
+        </tbody>
+      </table>
+
+      <div class="modal-precos-cta">
+        <button class="btn-agendar-modal js-abrir-modal" id="agendarDePrecos">
+          AGENDAR AGORA
+        </button>
+        <p class="precos-obs">* Valores sujeitos a alteração. Confirme ao agendar.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       MODAL DE AGENDAMENTO (3 etapas)
+  ============================================================ -->
+  <div id="modalAgendamento" class="modal-container" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-content">
-      <span class="close-modal" id="closeModal">&times;</span>
 
-      <h2 id="modalTitle">Selecione o sexo para começar</h2>
+      <div class="modal-progress" aria-hidden="true">
+        <div class="progress-step active" data-step="0">1</div>
+        <div class="progress-line"></div>
+        <div class="progress-step" data-step="1">2</div>
+        <div class="progress-line"></div>
+        <div class="progress-step" data-step="2">3</div>
+      </div>
 
+      <button class="close-modal" id="closeModal" aria-label="Fechar">&times;</button>
+      <h2 id="modalTitle">Selecione o seu sexo para começar:</h2>
+
+      <!-- ETAPA 0: Sexo -->
       <div id="step0" class="modal-step">
         <div class="grupo-sexo">
-          <label class="opcao-genero" for="masc">
-            <input type="radio" id="masc" name="sexo" value="m">
-            <span>Masculino</span>
-          </label>
-          <label class="opcao-genero" for="fem">
-            <input type="radio" id="fem" name="sexo" value="f">
-            <span>Feminino</span>
-          </label>
+          <label class="opcao-genero" for="masc"><input type="radio" id="masc" name="sexo" value="m"><span>Masculino</span></label>
+          <label class="opcao-genero" for="fem"><input type="radio" id="fem" name="sexo" value="f"><span>Feminino</span></label>
         </div>
-        <button type="button" onclick="selecionarSexoEContinuar()" class="btn-agendar-modal">Avançar</button>
+        <div class="modal-buttons">
+          <button type="button" onclick="selecionarSexoEContinuar()" class="btn-agendar-modal">Avançar →</button>
+        </div>
       </div>
 
-      <div id="step1" class="modal-step" style="display: none;">
-
-        <div class="tabs">
-          <button type="button" onclick="changeTab('facial')">Facial</button>
-          <button type="button" onclick="changeTab('corporal')">Corporal</button>
-          <button type="button" onclick="changeTab('combos')">Combos</button>
+      <!-- ETAPA 1: Serviços -->
+      <div id="step1" class="modal-step" style="display:none;">
+        <div class="tabs" role="tablist">
+          <button type="button" role="tab" onclick="changeTab('facial')">Facial</button>
+          <button type="button" role="tab" onclick="changeTab('corporal')">Corporal</button>
+          <button type="button" role="tab" onclick="changeTab('combos')">Combos</button>
         </div>
-
-        <div id="services" class="services-grid"></div>
-
+        <div id="services" class="services-grid" role="list"></div>
         <div class="summary">
           <p id="selectedService">Nenhum selecionado</p>
-          <p id="total">Total: R$ 0</p>
+          <p id="total" class="total-destaque">Total: R$ 0</p>
         </div>
-
         <div class="modal-buttons">
-          <button type="button" onclick="irParaEtapa('step1', 'step0')" class="btn-voltar">Voltar</button>
-          <button type="button" id="nextStep" class="btn-agendar-modal">Avançar</button>
+          <button type="button" onclick="irParaEtapa('step1','step0')" class="btn-voltar">← Voltar</button>
+          <button type="button" id="nextStep" class="btn-agendar-modal">Avançar →</button>
         </div>
       </div>
 
-      <div id="step2" class="modal-step" style="display: none;">
+      <!-- ETAPA 2: Dados e horário -->
+      <div id="step2" class="modal-step" style="display:none;">
         <div id="form-agendamento">
-          <input type="text" placeholder="Nome" id="name" />
-          <input type="text" placeholder="WhatsApp" id="phone" />
-
+          <input type="text" placeholder="Seu nome completo" id="name" autocomplete="name" />
+          <input type="tel"  placeholder="WhatsApp com DDD" id="phone" autocomplete="tel" inputmode="numeric" />
           <label for="date" class="label-form">Escolha o dia do atendimento:</label>
-          <input type="date" id="date">
-
+          <input type="date" id="date" />
           <label for="container-horarios" class="label-form">Escolha o horário disponível:</label>
-          <div id="container-horarios" class="grade-horarios"></div>
-
+          <div id="container-horarios" class="grade-horarios" role="group" aria-label="Horários disponíveis"></div>
           <div class="modal-buttons">
-            <button type="button" onclick="irParaEtapa('step2', 'step1')" class="btn-voltar">Voltar</button>
-            <button type="button" id="confirm" class="btn-agendar-modal">Confirmar agendamento</button>
+            <button type="button" onclick="irParaEtapa('step2','step1')" class="btn-voltar">← Voltar</button>
+            <button type="button" id="confirm" class="btn-agendar-modal">Confirmar via WhatsApp ✓</button>
           </div>
         </div>
       </div>
@@ -354,25 +371,5 @@
     </div>
   </div>
 
-  <!-- MODAL AGENDAMENTO -->
-  <dialog id="modalAgedamento">
-    <h2>Reserve seu horário e se surpreenda!</h2>
-    <form>
-      <input type="text" placeholder="Nome" />
-      <input type="text" placeholder="WhatsApp" />
-      <input type="text" placeholder="Email" />
-      <input type="radio" name="masculino" /> Masculino
-      <input type="radio" name="feminino" />Feminino
-      <input type="select" name="servico" />Selecione o serviço
-      <input type="text" placeholder="Data" />
-      <input type="text" placeholder="Horário" />
-      <button id="agendar" class="btn-primary">Agendar</button>
-    </form>
-    </div>
-    </section>
-
-
 </body>
-
-
 </html>
