@@ -17,25 +17,24 @@
 // ============================================================
 const SERVICOS = {
   facial: [
-    { id: "buco",        name: "Buço",        sexo: ["f"],      price: 15,  time: 15 },
-    { id: "sobrancelha", name: "Sobrancelha", sexo: ["f", "m"], price: 25,  time: 30 },
-    { id: "barba",       name: "Barba",       sexo: ["m"],      price: 20,  time: 30 },
+    { id: "buco", name: "Buço", sexo: ["f"], price: 15, time: 15 },
+    { id: "sobrancelha", name: "Sobrancelha", sexo: ["f", "m"], price: 25, time: 30 },
+    { id: "barba", name: "Barba", sexo: ["m"], price: 20, time: 30 },
   ],
   corporal: [
-    { id: "axila",   name: "Axila",   sexo: ["f", "m"], price: 30, time: 15 },
-    { id: "peito",   name: "Peito",   sexo: ["m"],      price: 45, time: 20 },
-    { id: "perna",   name: "Perna",   sexo: ["f", "m"], price: 50, time: 45 },
-    { id: "bracos",  name: "Braços",  sexo: ["f", "m"], price: 40, time: 30 },
-    { id: "bumbum",  name: "Bumbum",  sexo: ["f", "m"], price: 35, time: 30 },
-    { id: "costas",  name: "Costas",  sexo: ["f", "m"], price: 45, time: 30 },
+    { id: "axila", name: "Axila", sexo: ["f", "m"], price: 30, time: 15 },
+    { id: "perna", name: "Perna", sexo: ["f", "m"], price: 50, time: 45 },
+    { id: "bracos", name: "Braços", sexo: ["f", "m"], price: 40, time: 30 },
+    { id: "bumbum", name: "Bumbum", sexo: ["f", "m"], price: 35, time: 30 },
+    { id: "costas", name: "Costas", sexo: ["f", "m"], price: 45, time: 30 },
     { id: "virilha", name: "Virilha", sexo: ["f", "m"], price: 60, time: 45 },
   ],
   combos: [
-    { id: "facial-feminino",    name: "Combo Facial Feminino",    sexo: ["f"],      price: 35,  time: 45,  desc: "Buço e Sobrancelha" },
-    { id: "facial-masculino",   name: "Combo Facial Masculino",   sexo: ["m"],      price: 50,  time: 60,  desc: "Sobrancelha e Barba" },
-    { id: "corporal-feminino",  name: "Combo Corporal Feminino",  sexo: ["f"],      price: 180, time: 165, desc: "Axila, perna, braços, virilha/bumbum" },
-    { id: "corporal-masculino", name: "Combo Corporal Masculino", sexo: ["m"],      price: 200, time: 180, desc: "Costas, axila, perna, braços, virilha/bumbum" },
-    { id: "pacote-completo",    name: "Pacote Completo",          sexo: ["f", "m"], price: 240, time: 180, desc: "Facial e corporal" },
+    { id: "facial-feminino", name: "Combo Facial Feminino", sexo: ["f"], price: 35, time: 45, desc: "Buço e Sobrancelha" },
+    { id: "facial-masculino", name: "Combo Facial Masculino", sexo: ["m"], price: 50, time: 60, desc: "Sobrancelha e Barba" },
+    { id: "corporal-feminino", name: "Combo Corporal Feminino", sexo: ["f"], price: 180, time: 165, desc: "Axila, perna, braços, virilha/bumbum" },
+    { id: "corporal-masculino", name: "Combo Corporal Masculino", sexo: ["m"], price: 200, time: 180, desc: "Costas, axila, perna, braços, virilha/bumbum" },
+    { id: "pacote-completo", name: "Pacote Completo", sexo: ["f", "m"], price: 240, time: 180, desc: "Facial e corporal" },
   ],
 };
 
@@ -51,7 +50,7 @@ const agendamento = {
 
   // "get" cria uma propriedade calculada — não precisa chamar como função
   get precoTotal() { return this.servicos.reduce((acumulador, servico) => acumulador + servico.price, 0); },
-  get tempoTotal()  { return this.servicos.reduce((acumulador, servico) => acumulador + servico.time,  0); },
+  get tempoTotal() { return this.servicos.reduce((acumulador, servico) => acumulador + servico.time, 0); },
 
   reset() {
     this.sexo = null;
@@ -82,9 +81,9 @@ function formatarMoedaBR(valor) {
 /** Retorna a data de hoje no formato YYYY-MM-DD usando o fuso local (não UTC). */
 function obterDataHojeISO() {
   const hoje = new Date();
-  const ano  = hoje.getFullYear();
-  const mes  = String(hoje.getMonth() + 1).padStart(2, "0"); // getMonth() começa em 0
-  const dia  = String(hoje.getDate()).padStart(2, "0");
+  const ano = hoje.getFullYear();
+  const mes = String(hoje.getMonth() + 1).padStart(2, "0"); // getMonth() começa em 0
+  const dia = String(hoje.getDate()).padStart(2, "0");
   return `${ano}-${mes}-${dia}`;
 }
 
@@ -124,7 +123,7 @@ function limparErroInline(containerElemento) {
 // ============================================================
 (function iniciarMenuHamburguer() {
   const botaoHamburguer = buscarElemento("hamburger");
-  const listaLinks      = buscarElemento("nav-links");
+  const listaLinks = buscarElemento("nav-links");
   if (!botaoHamburguer || !listaLinks) return;
 
   // Detecta se o dispositivo tem mouse ou teclado físico (hover preciso)
@@ -172,18 +171,18 @@ function limparErroInline(containerElemento) {
 //    - Respeita a preferência "reduzir animações" do sistema
 // ============================================================
 (function iniciarCarrossel() {
-  const trilha         = buscarElemento("sliderTrack");
-  const containerDots  = buscarElemento("dotsContainer");
-  const botaoProximo   = buscarElemento("nextBtn");
-  const botaoAnterior  = buscarElemento("prevBtn");
+  const trilha = buscarElemento("sliderTrack");
+  const containerDots = buscarElemento("dotsContainer");
+  const botaoProximo = buscarElemento("nextBtn");
+  const botaoAnterior = buscarElemento("prevBtn");
   if (!trilha || !containerDots || !botaoProximo || !botaoAnterior) return;
 
   const cartoes = trilha.querySelectorAll(".testimonial-card");
   if (cartoes.length === 0) return;
 
-  let indiceAtual          = 0;
-  let idAutoPlay           = null;
-  let pausadoPorInteracao  = false;
+  let indiceAtual = 0;
+  let idAutoPlay = null;
+  let pausadoPorInteracao = false;
 
   // --- Cria os dots de navegação ---
   cartoes.forEach((_, indice) => {
@@ -236,8 +235,8 @@ function limparErroInline(containerElemento) {
     idAutoPlay = setInterval(() => irParaCartao(indiceAtual + 1), 5000);
   }
 
-  botaoProximo.addEventListener("click",   () => { irParaCartao(indiceAtual + 1); pausarAutoPlay(); });
-  botaoAnterior.addEventListener("click",  () => { irParaCartao(indiceAtual - 1); pausarAutoPlay(); });
+  botaoProximo.addEventListener("click", () => { irParaCartao(indiceAtual + 1); pausarAutoPlay(); });
+  botaoAnterior.addEventListener("click", () => { irParaCartao(indiceAtual - 1); pausarAutoPlay(); });
 
   // Recalcula posição ao girar o celular ou redimensionar janela
   window.addEventListener("resize", () => irParaCartao(indiceAtual));
@@ -256,7 +255,7 @@ function limparErroInline(containerElemento) {
   }, { passive: true }); // passive: true melhora performance da rolagem
 
   trilha.addEventListener("touchend", (evento) => {
-    const posicaoFinal     = evento.changedTouches[0].clientX;
+    const posicaoFinal = evento.changedTouches[0].clientX;
     const distanciaArrastad = posicaoInicialTouch - posicaoFinal;
 
     // Só muda de slide se o dedo andou mais de 50px (evita cliques acidentais)
@@ -278,8 +277,8 @@ function limparErroInline(containerElemento) {
 //    Mostra tabela de preços filtrada por sexo (feminino/masculino)
 // ============================================================
 (function iniciarModalPrecos() {
-  const modalPrecos    = buscarElemento("modalPrecos");
-  const fecharPrecos   = buscarElemento("closeModalPrecos");
+  const modalPrecos = buscarElemento("modalPrecos");
+  const fecharPrecos = buscarElemento("closeModalPrecos");
   if (!modalPrecos) return;
 
   function abrirModalPrecos() {
@@ -374,8 +373,8 @@ function exibirTabelaPrecos(sexo) {
 // ============================================================
 (function iniciarModalAgendamento() {
   const modalAgendamento = buscarElemento("modalAgendamento");
-  const botaoFechar      = buscarElemento("closeModal");
-  const tituloModal      = buscarElemento("modalTitle");
+  const botaoFechar = buscarElemento("closeModal");
+  const tituloModal = buscarElemento("modalTitle");
   if (!modalAgendamento) return;
 
   // Títulos de cada etapa — indexados por número da etapa
@@ -398,8 +397,8 @@ function exibirTabelaPrecos(sexo) {
     const numeroEtapa = parseInt(idEtapa.replace("step", ""), 10);
 
     document.querySelectorAll(".progress-step").forEach((passo, indice) => {
-      passo.classList.toggle("active",   indice <= numeroEtapa);
-      passo.classList.toggle("completo", indice <  numeroEtapa);
+      passo.classList.toggle("active", indice <= numeroEtapa);
+      passo.classList.toggle("completo", indice < numeroEtapa);
     });
 
     if (tituloModal) tituloModal.textContent = titulosEtapa[numeroEtapa] ?? "";
@@ -409,6 +408,11 @@ function exibirTabelaPrecos(sexo) {
   document.querySelectorAll(".js-abrir-modal").forEach((botao) => {
     botao.addEventListener("click", (evento) => {
       evento.preventDefault();
+
+      // Se o modal de preços estiver aberto, fecha ele primeiro
+      const modalPrecosAberto = buscarElemento("modalPrecos");
+      if (modalPrecosAberto) modalPrecosAberto.style.display = "none";
+
       agendamento.reset();
       atualizarResumoServicos();
 
@@ -472,33 +476,37 @@ function exibirTabelaPrecos(sexo) {
 
   // --- Confirmar agendamento e abrir WhatsApp ---
   buscarElemento("confirm")?.addEventListener("click", () => {
-    const nome     = (buscarElemento("name")?.value  || "").trim();
+    const nome = (buscarElemento("name")?.value || "").trim();
     const telefone = (buscarElemento("phone")?.value || "").replace(/\D/g, ""); // remove tudo que não é dígito
-    const data     = buscarElemento("date")?.value   || "";
-    const horario  = buscarElemento("container-horarios")?.dataset.horarioSelecionado || "";
-    const etapa2   = buscarElemento("step2");
+    const data = buscarElemento("date")?.value || "";
+    const horario = buscarElemento("container-horarios")?.dataset.horarioSelecionado || "";
+    const etapa2 = buscarElemento("step2");
 
     // Valida cada campo separadamente para dar mensagem específica
-    if (!nome)                   { exibirErroInline(etapa2, "Por favor, informe seu nome."); return; }
-    if (telefone.length < 10)    { exibirErroInline(etapa2, "Informe um WhatsApp válido com DDD."); return; }
-    if (!data)                   { exibirErroInline(etapa2, "Escolha uma data para o atendimento."); return; }
-    if (!horario)                { exibirErroInline(etapa2, "Selecione um horário disponível."); return; }
+    if (!nome) { exibirErroInline(etapa2, "Por favor, informe seu nome."); return; }
+    if (telefone.length < 10) { exibirErroInline(etapa2, "Informe um WhatsApp válido com DDD."); return; }
+    if (!data) { exibirErroInline(etapa2, "Escolha uma data para o atendimento."); return; }
+    if (!horario) { exibirErroInline(etapa2, "Selecione um horário disponível."); return; }
 
     const [ano, mes, dia] = data.split("-");
-    const dataFormatada   = `${dia}/${mes}/${ano}`;
-    const listaNomes      = agendamento.servicos.map((servico) => servico.name).join(", ");
-    const totalFormatado  = formatarMoedaBR(agendamento.precoTotal);
+    const dataFormatada = `${dia}/${mes}/${ano}`;
+    const listaNomes = agendamento.servicos.map((servico) => servico.name).join(", ");
+    const totalFormatado = formatarMoedaBR(agendamento.precoTotal);
 
     const mensagemWhatsApp =
-      `Olá, Cida! 👋 Quero agendar:\n` +
-      `📋 Serviço(s): ${listaNomes}\n` +
-      `📅 Data: ${dataFormatada} às ${horario}\n` +
-      `💰 Total estimado: ${totalFormatado}\n` +
-      `👤 Nome: ${nome}`;
+      `Olá, Cida! Quero agendar:
+      Nome: ${nome}
+      Serviço(s): ${listaNomes}
+      Data: ${dataFormatada} às ${horario}
+      Total estimado: ${totalFormatado}`;
 
     // TODO: substituir pelo número real da Cida antes de publicar
     const urlWhatsApp = `https://wa.me/5531988762922?text=${encodeURIComponent(mensagemWhatsApp)}`;
     window.open(urlWhatsApp, "_blank", "noopener");
+
+    // Fecha o modal e libera o scroll após abrir o WhatsApp
+    buscarElemento("modalAgendamento").style.display = "none";
+    document.body.style.overflow = "";
   });
 })();
 
@@ -510,7 +518,7 @@ function exibirTabelaPrecos(sexo) {
 /** Atualiza o rodapé do modal com os serviços escolhidos e o total. */
 function atualizarResumoServicos() {
   const textoServico = buscarElemento("selectedService");
-  const textoTotal   = buscarElemento("total");
+  const textoTotal = buscarElemento("total");
   if (!textoServico || !textoTotal) return;
 
   textoServico.textContent = agendamento.servicos.length === 0
@@ -615,8 +623,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!campoDiaSelecionado) return;
 
   campoDiaSelecionado.addEventListener("change", (evento) => {
-    const dataSelecionada    = evento.target.value; // formato: "YYYY-MM-DD"
-    const containerHorarios  = buscarElemento("container-horarios");
+    const dataSelecionada = evento.target.value; // formato: "YYYY-MM-DD"
+    const containerHorarios = buscarElemento("container-horarios");
     if (!dataSelecionada) return;
 
     // VALIDAÇÃO 1: impede datas no passado (proteção extra além do atributo min)
@@ -643,8 +651,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Busca agendamentos já salvos no localStorage para bloquear horários ocupados
-    const todosAgendamentos    = JSON.parse(localStorage.getItem("agendamentos") || "[]");
-    const agendamentosDoDia    = todosAgendamentos.filter((ag) => ag.date === dataSelecionada);
+    const todosAgendamentos = JSON.parse(localStorage.getItem("agendamentos") || "[]");
+    const agendamentosDoDia = todosAgendamentos.filter((ag) => ag.date === dataSelecionada);
     calcularHorariosDisponiveis(dataSelecionada, diaSemana, agendamentosDoDia);
   });
 });
@@ -654,11 +662,11 @@ document.addEventListener("DOMContentLoaded", () => {
  * disponível ou bloqueada, aplicando as regras de negócio da Cida.
  */
 function calcularHorariosDisponiveis(dataSelecionada, diaSemana, agendamentosDoDia) {
-  const ABERTURA_EM_MINUTOS   = 8 * 60;          // 08:00 → 480 min
+  const ABERTURA_EM_MINUTOS = 8 * 60;          // 08:00 → 480 min
   const FECHAMENTO_EM_MINUTOS = (diaSemana === 6 ? 12 : 18) * 60; // sáb: 720, sem: 1080
-  const ALMOCO_INICIO         = 12 * 60;          // 12:00 → 720 min
-  const ALMOCO_FIM            = 13 * 60;          // 13:00 → 780 min
-  const DURACAO_SERVICO       = agendamento.tempoTotal;
+  const ALMOCO_INICIO = 12 * 60;          // 12:00 → 720 min
+  const ALMOCO_FIM = 13 * 60;          // 13:00 → 780 min
+  const DURACAO_SERVICO = agendamento.tempoTotal;
 
   const listaHorarios = [];
 
@@ -666,7 +674,7 @@ function calcularHorariosDisponiveis(dataSelecionada, diaSemana, agendamentosDoD
     const minutoTermino = minutoAtual + DURACAO_SERVICO;
 
     // Converte minutos para texto "HH:MM"
-    const horaTexto   = String(Math.floor(minutoAtual / 60)).padStart(2, "0");
+    const horaTexto = String(Math.floor(minutoAtual / 60)).padStart(2, "0");
     const minutoTexto = String(minutoAtual % 60).padStart(2, "0");
     const horarioFormatado = `${horaTexto}:${minutoTexto}`;
 
@@ -678,26 +686,26 @@ function calcularHorariosDisponiveis(dataSelecionada, diaSemana, agendamentosDoD
       estaBloqueado = true;
       motivoBloqueio = "almoco";
 
-    // REGRA B: serviço começa antes do almoço mas invade o horário de almoço
+      // REGRA B: serviço começa antes do almoço mas invade o horário de almoço
     } else if (minutoAtual < ALMOCO_INICIO && minutoTermino > ALMOCO_INICIO) {
       estaBloqueado = true;
       motivoBloqueio = "insuficiente";
 
-    // REGRA C: serviço ultrapassa o horário de fechamento
+      // REGRA C: serviço ultrapassa o horário de fechamento
     } else if (minutoTermino > FECHAMENTO_EM_MINUTOS) {
       estaBloqueado = true;
       motivoBloqueio = "expediente";
 
-    // REGRA D: colisão com agendamento já existente no dia
+      // REGRA D: colisão com agendamento já existente no dia
     } else {
       for (const agendamentoExistente of agendamentosDoDia) {
         const [horaAg, minutoAg] = agendamentoExistente.time.split(":").map(Number);
-        const inicioAgendamento  = horaAg * 60 + minutoAg;
-        const fimAgendamento     = inicioAgendamento + agendamentoExistente.duration;
+        const inicioAgendamento = horaAg * 60 + minutoAg;
+        const fimAgendamento = inicioAgendamento + agendamentoExistente.duration;
 
         // Sobreposição: o novo começa antes de o antigo terminar E termina depois de o antigo começar
         if (minutoAtual < fimAgendamento && minutoTermino > inicioAgendamento) {
-          estaBloqueado  = true;
+          estaBloqueado = true;
           motivoBloqueio = "ocupado";
           break;
         }
@@ -719,10 +727,10 @@ function renderizarBotoesHorario(listaHorarios) {
   containerHorarios.innerHTML = "";
 
   const legendaBloqueio = {
-    almoco:       "Almoço",
+    almoco: "Almoço",
     insuficiente: "Sem tempo",
-    expediente:   "Fora do horário",
-    ocupado:      "Ocupado",
+    expediente: "Fora do horário",
+    ocupado: "Ocupado",
   };
 
   listaHorarios.forEach((item) => {
@@ -758,3 +766,94 @@ function renderizarBotoesHorario(listaHorarios) {
     containerHorarios.appendChild(avisoSemHorario);
   }
 }
+
+
+// ============================================================
+// 10. MÁSCARA DE TELEFONE
+//     Formata automaticamente conforme o usuário digita:
+//     11 dígitos → (31) 98876-2922
+//     10 dígitos → (31) 8876-2922
+// ============================================================
+document.addEventListener("DOMContentLoaded", () => {
+  const campoCelular = buscarElemento("phone");
+  if (!campoCelular) return;
+
+  campoCelular.addEventListener("input", (evento) => {
+    // Remove tudo que não for dígito
+    let apenasDigitos = evento.target.value.replace(/\D/g, "");
+
+    // Limita a 11 dígitos (DDD + 9 dígitos)
+    if (apenasDigitos.length > 11) apenasDigitos = apenasDigitos.slice(0, 11);
+
+    // Aplica a máscara progressivamente conforme o usuário digita
+    let valorFormatado = "";
+    if (apenasDigitos.length === 0) {
+      valorFormatado = "";
+    } else if (apenasDigitos.length <= 2) {
+      // Só o DDD: (31
+      valorFormatado = `(${apenasDigitos}`;
+    } else if (apenasDigitos.length <= 6) {
+      // DDD + início: (31) 9887
+      valorFormatado = `(${apenasDigitos.slice(0, 2)}) ${apenasDigitos.slice(2)}`;
+    } else if (apenasDigitos.length <= 10) {
+      // Telefone fixo: (31) 8876-2922
+      valorFormatado = `(${apenasDigitos.slice(0, 2)}) ${apenasDigitos.slice(2, 6)}-${apenasDigitos.slice(6)}`;
+    } else {
+      // Celular com 9: (31) 98876-2922
+      valorFormatado = `(${apenasDigitos.slice(0, 2)}) ${apenasDigitos.slice(2, 7)}-${apenasDigitos.slice(7)}`;
+    }
+
+    evento.target.value = valorFormatado;
+  });
+});
+
+
+// ============================================================
+// 11. LINK "CONSULTAR TABELA DE PREÇOS" NA ETAPA 0 DO MODAL
+//     Aparece em todos os botões de agendamento, pois fica
+//     dentro do modal — não depende de qual botão o abriu.
+//
+//     IMPORTANTE: o botão é criado dinamicamente, então não
+//     podemos usar querySelector para adicionar o listener
+//     (o elemento ainda não existe quando o script roda).
+//     Usamos delegação de eventos no document — ele "ouve"
+//     todos os cliques da página e filtra pelo seletor certo.
+// ============================================================
+document.addEventListener("DOMContentLoaded", () => {
+  const etapa0 = buscarElemento("step0");
+  if (!etapa0) return;
+
+  // Cria o link discreto abaixo dos botões da etapa 0
+  const linkConsultar = document.createElement("p");
+  linkConsultar.className = "link-consultar-precos";
+  linkConsultar.innerHTML = `Quer ver os preços antes? <button type="button" class="btn-link-precos">Consultar tabela →</button>`;
+
+  const botoesEtapa0 = etapa0.querySelector(".modal-buttons");
+  if (botoesEtapa0) {
+    botoesEtapa0.insertAdjacentElement("afterend", linkConsultar);
+  } else {
+    etapa0.appendChild(linkConsultar);
+  }
+
+  // Delegação: escuta cliques no document e age quando o alvo
+  // for o botão de consulta — funciona mesmo para elementos criados depois
+  document.addEventListener("click", (evento) => {
+    if (!evento.target.classList.contains("btn-link-precos")) return;
+
+    // Fecha o modal de agendamento
+    const modalAgendamento = buscarElemento("modalAgendamento");
+    if (modalAgendamento) modalAgendamento.style.display = "none";
+
+    // Abre o modal de preços na aba feminino
+    const modalPrecos = buscarElemento("modalPrecos");
+    if (modalPrecos) {
+      modalPrecos.style.display = "flex";
+      exibirTabelaPrecos("f");
+
+      // Garante que o botão feminino apareça como ativo
+      modalPrecos.querySelectorAll(".btn-sexo-preco").forEach((botao) => {
+        botao.classList.toggle("active", botao.dataset.sexo === "f");
+      });
+    }
+  });
+});
