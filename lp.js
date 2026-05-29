@@ -630,15 +630,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // VALIDAÇÃO 1: impede datas no passado (proteção extra além do atributo min)
     const [anoDigitado, mesDigitado, diaDigitado] = dataSelecionada.split("-").map(Number);
     const dataDigitada = new Date(anoDigitado, mesDigitado - 1, diaDigitado);
+
     const hoje = new Date();
     hoje.setHours(0, 0, 0, 0);
 
+    // VALIDAÇÃO 1: impede o cliente de escolher uma data no passado
     if (dataDigitada < hoje) {
       exibirErroInline(buscarElemento("step2"), "Você não pode selecionar uma data no passado.");
       evento.target.value = "";
       if (containerHorarios) containerHorarios.innerHTML = "";
       return;
     }
+
 
     // VALIDAÇÃO 2: a Cida não atende aos domingos
     // "T00:00:00" garante que o fuso local seja usado (sem T, pode dar problema no Safari)
@@ -662,6 +665,12 @@ document.addEventListener("DOMContentLoaded", () => {
  * disponível ou bloqueada, aplicando as regras de negócio da Cida.
  */
 function calcularHorariosDisponiveis(dataSelecionada, diaSemana, agendamentosDoDia) {
+  const agora = new Date();
+  const dataHoje = agora.toISOString().split('T')[0];// Formata a data de hoje como AAAA-MM-DD
+  const horaAtual = String(agora.getHours()).padStart(2, '0');
+  const minutoAtual = String(agora.getMinutes()).padStart(2, '0');
+  const horarioAtualFormatado = `${horaAtual}:${minutoAtual}`;// Juntando as duas para formar algo como "14:35"
+
   const ABERTURA_EM_MINUTOS = 8 * 60;          // 08:00 → 480 min
   const FECHAMENTO_EM_MINUTOS = (diaSemana === 6 ? 12 : 18) * 60; // sáb: 720, sem: 1080
   const ALMOCO_INICIO = 12 * 60;          // 12:00 → 720 min
@@ -696,7 +705,13 @@ function calcularHorariosDisponiveis(dataSelecionada, diaSemana, agendamentosDoD
       estaBloqueado = true;
       motivoBloqueio = "expediente";
 
-      // REGRA D: colisão com agendamento já existente no dia
+      // REGRA E: impede o cliente de escolher o horario no passado
+    } else if (dataSelecionada === dataHoje && horarioFormatado < horarioAtualFormatado) {
+
+     estaBloqueado = true;
+      motivoBloqueio = "passado";  
+
+      // REGRA E: colisão com agendamento já existente no dia
     } else {
       for (const agendamentoExistente of agendamentosDoDia) {
         const [horaAg, minutoAg] = agendamentoExistente.time.split(":").map(Number);
